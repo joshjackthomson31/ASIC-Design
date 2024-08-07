@@ -11,7 +11,8 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    leafpad sum.c
    ```
-   
+   ![WhatsApp Image 2024-08-07 at 3 21 35 PM](https://github.com/user-attachments/assets/76ba4dc1-66a0-4f63-b342-3fae9eecc83d)
+
 2. **Code :**
    ```
    #include <stdio.h>
