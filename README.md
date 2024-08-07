@@ -119,13 +119,24 @@ To debug the main section of the above program sum.c and to observe the values o
    ```
    spike -d pk sum.o
    ```
-
-3. **Bring the Program Counter( PC) to the start of main by using the following command.**
+   **Observation :** We'll be entering the debugging mode after this command has been executed.
+   
+4. **Bring the Program Counter( PC) to the start of main by using the following command.**
    ```
    until bc 0 100b0
    ```
-4. **Execution of the following commands to check he contents of register a2 before and after running the instructions.**
+   Here, 0x100b0 is the address of the start of main function.
+   Since register a2 is present at 0x100b0, we'll check register a2 before and after the execution of instructions.
+   
+6. **Execution of the following commands to check he contents of register a2 before and after running the instructions.**
    ```
    reg 0 a2
    ```
-   Press ```Enter```
+7. **Move PC to location 100b8 using the following command.**
+   ```
+   until pc 0 100b8
+   ```
+8. **Checking the contents of sp.**
+   ```
+   reg 0 sp
+   ```
