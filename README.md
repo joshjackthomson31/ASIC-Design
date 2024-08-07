@@ -72,4 +72,5 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ![WhatsApp Image 2024-08-07 at 6 12 50 PM](https://github.com/user-attachments/assets/cde047f3-063a-4860-8b62-cdb6165a202c)
 
 3. **Observation-1 :**
+   
    We can see there are 11 lines of opcode in the main section.
