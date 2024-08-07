@@ -137,8 +137,8 @@ To debug the main section of the above program sum.c and to observe the values o
    ```
    ![WhatsApp Image 2024-08-07 at 10 15 37 PM (1)](https://github.com/user-attachments/assets/199d8fae-d602-45ef-99cb-c45dcb163c33)
 
-   Here, 0x100b0 is the address of the start of main function.
-   Since register a0 is present at 0x100b0, we'll check register a0 before and after the execution of instructions in the next step.
+   * Here, 0x100b0 is the address of the start of main function.
+   * Since register a0 is present at 0x100b0, we'll check register a0 before and after the execution of instructions in the next step.
    
 4. **Execution of the following commands to check he contents of register a0 before and after running the instructions.**
    ```
@@ -147,14 +147,15 @@ To debug the main section of the above program sum.c and to observe the values o
    ![WhatsApp Image 2024-08-07 at 10 15 37 PM (2)](https://github.com/user-attachments/assets/ae0f546f-0fbe-4022-ba6f-1cc1f2c57d6d)
    * lui a0, 0x21 command adds the register ao by 0x21.
 
-6. **Move PC to location 100b4 using the following command.**
+5. **Move PC to location 100b4 using the following command.**
    ```
    until pc 0 100b4
    ``` 
    
-7. **Checking the contents of sp.**
+6. **Checking the contents of sp.**
    ```
    reg 0 sp
    ```
    ![WhatsApp Image 2024-08-07 at 10 15 38 PM (2)](https://github.com/user-attachments/assets/cf986585-5933-442a-b28c-ace004dd545d)
-
+   * addi sp, sp, -16 reduces the sp pointer by 16.
+   * sp pointer gets updated from 0x0000003ffffffb50 to 0x0000003ffffffb40.
