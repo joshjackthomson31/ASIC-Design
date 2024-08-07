@@ -103,3 +103,14 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
 
 ---
 ## LAB SESSION-2
+
+### AIM
+To debug the main section of the above program sum.c and to observe the values of register after each step of compilation.
+
+### PROCEDURE
+
+1. **Compile the code using the spike simulator and then compare the results obtained using both the compilation techniques by typing the following command.**
+   ```
+   spike pk sum.o
+   ```
+   **Observation :** The results obtained from both the compilation techniques are the same.
