@@ -86,6 +86,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    riscv64-unknown-elf-objdump -d sum.o | less
    ```
+   The addition 'less' command is used to interactively browse the potentially lengthy disassembly output of sum.o.
    When you type the above command, a list of opcode appears in the terminal. to obtain the main section of the program we need to type /main as shown below.
    ```
    /main
@@ -97,9 +98,14 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
 
    We can see there are 11 lines of opcode in the main section.
 
-7. **Conclusion :**
+7. **Results :**
    
-   The compilation in the Ofast procedure is more optimised.
+   The number of instructions using O1 optimisation = 14.
+   The number of instructions usinf Ofast optimisation = 11.
+
+8. **Conclusion :**
+   
+   The number of instructions decreases with Ofast due to aggressive optimization. This leads to an increase in compilation time and code size.
 
 ---
 ## LAB SESSION-2
@@ -132,7 +138,7 @@ To debug the main section of the above program sum.c and to observe the values o
    ![WhatsApp Image 2024-08-07 at 10 15 37 PM (1)](https://github.com/user-attachments/assets/199d8fae-d602-45ef-99cb-c45dcb163c33)
 
    Here, 0x100b0 is the address of the start of main function.
-   Since register a0 is present at 0x100b0, we'll check register a0 before and after the execution of instructions.
+   Since register a0 is present at 0x100b0, we'll check register a0 before and after the execution of instructions in the next step.
    
 4. **Execution of the following commands to check he contents of register a0 before and after running the instructions.**
    ```
