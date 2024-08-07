@@ -7,7 +7,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
 
 ### PROCEDURE
 #### Task-1 : Compile the C program code using GCC compiler.
-1. **Code :**
+2. **Code :**
 ```
 #include <stdio.h>
 int main() 
@@ -23,22 +23,22 @@ int main()
 }
 ```
 
-2. **Compile the code :**
+3. **Compile the code :**
    ```
    gcc sum.c
    ```
    
-3. **Run the code :**
+4. **Run the code :**
    ```
    ./a.out
    ```
    
-4. **Output :**
+5. **Output :**
    ```
    The sum from 1 to 10 is 55
    ```
 
-5. **Conclusion :**
+6. **Conclusion :**
 
    In the above snap, it can be seen that the C program is complied successfully and the output is also correctly calculated i.e., 55 ( 1+2+3+4+5+6+7+8+9+10 = 55).
 
