@@ -113,30 +113,38 @@ To debug the main section of the above program sum.c and to observe the values o
    ```
    spike pk sum.o
    ```
+   ![WhatsApp Image 2024-08-07 at 10 15 38 PM](https://github.com/user-attachments/assets/5a4d02eb-1f1a-45a6-839b-14b88ee9f8e1)
+
    **Observation :** The results obtained from both the compilation techniques are the same.
 
 2. **Execution of sum.o in the spike simulator to debug the code using the following command.**
    ```
    spike -d pk sum.o
    ```
+   ![WhatsApp Image 2024-08-07 at 10 15 37 PM](https://github.com/user-attachments/assets/5bacb11d-9cd0-4723-b7fd-56eb3142e8d7)
+
    **Observation :** We'll be entering the debugging mode after this command has been executed.
    
-4. **Bring the Program Counter( PC) to the start of main by using the following command.**
+3. **Bring the Program Counter( PC) to the start of main by using the following command.**
    ```
    until bc 0 100b0
    ```
+   ![WhatsApp Image 2024-08-07 at 10 15 37 PM (1)](https://github.com/user-attachments/assets/199d8fae-d602-45ef-99cb-c45dcb163c33)
+
    Here, 0x100b0 is the address of the start of main function.
-   Since register a2 is present at 0x100b0, we'll check register a2 before and after the execution of instructions.
+   Since register a2 is present at 0x100b0, we'll check register a0 before and after the execution of instructions.
    
-6. **Execution of the following commands to check he contents of register a2 before and after running the instructions.**
+4. **Execution of the following commands to check he contents of register a0 before and after running the instructions.**
    ```
-   reg 0 a2
+   reg 0 a0
    ```
-7. **Move PC to location 100b8 using the following command.**
+   
+5. **Move PC to location 100b8 using the following command.**
    ```
    until pc 0 100b8
    ```
-8. **Checking the contents of sp.**
+   
+6. **Checking the contents of sp.**
    ```
    reg 0 sp
    ```
