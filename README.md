@@ -101,5 +101,5 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    
    The compilation in the Ofast procedure is more optimised.
 
-
+---
 ## LAB SESSION-2
