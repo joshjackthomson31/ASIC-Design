@@ -13,20 +13,20 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    
 2. **Code :**
-```
-#include <stdio.h>
-int main() 
-{
-    int n = 10;
-    int sum = 0;
-    for( int i = 1; i <= n; i++)
-    {
-      sum += i;
-    }
-    printf("The sum from 1 to %d is %d\n", n, sum);
-    return 0;
-}
-```
+   ```
+   #include <stdio.h>
+   int main() 
+   {
+       int n = 10;
+       int sum = 0;
+       for( int i = 1; i <= n; i++)
+       {
+         sum += i;
+       }
+       printf("The sum from 1 to %d is %d\n", n, sum);
+       return 0;
+   }
+   ```
 
 3. **Compile the code :**
    ```
