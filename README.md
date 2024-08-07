@@ -149,7 +149,7 @@ To debug the main section of the above program sum.c and to observe the values o
 5. **Move PC to location 100b4 using the following command.**
    ```
    until pc 0 100b4
-   ```
+   ``` 
    
 6. **Checking the contents of sp.**
    ```
