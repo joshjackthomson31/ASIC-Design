@@ -114,3 +114,8 @@ To debug the main section of the above program sum.c and to observe the values o
    spike pk sum.o
    ```
    **Observation :** The results obtained from both the compilation techniques are the same.
+
+2. **Execution of sum.o in the spike simulator to debug the code using the following command.**
+   ```
+   spike -d pk sum.o
+   ```
