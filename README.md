@@ -8,11 +8,11 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
 ### PROCEDURE
 #### Task-1 : Compile the C program code using GCC compiler.
 1. **Code :**
-```markdown
+```
 #include <stdio.h>
 int main() 
 {
-    int n = 5;
+    int n = 10;
     int sum = 0;
     for( int i = 1; i <= n; i++)
     {
@@ -24,7 +24,7 @@ int main()
 ```
 
 2. **Compile the code :**
-   ```markdown
+   ```
    gcc sum.c
    ```
    
@@ -34,4 +34,6 @@ int main()
    ```
    
 4. **Output :**
-   highrigh
+   ```
+   The sum from 1 to 10 is 55
+   ```
