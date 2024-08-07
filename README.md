@@ -29,6 +29,9 @@ int main()
    ```
    
 3. **Run the code :**
-   ```markdown
+   ```
    ./a.out
    ```
+   
+4. **Output :**
+   highrigh
