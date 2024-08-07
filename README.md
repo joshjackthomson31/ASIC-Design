@@ -7,7 +7,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
 
 ### PROCEDURE
 #### Task-1 : Compile the C program code using GCC compiler.
-1. Code :
+1. **Code :**
 ```markdown
 #include <stdio.h>
 int main() 
@@ -22,3 +22,8 @@ int main()
     return 0;
 }
 ```
+
+2. **Compiling the code :**
+   ```markdown
+   gcc sum.c
+   ```
