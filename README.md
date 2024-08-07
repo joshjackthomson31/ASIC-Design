@@ -43,9 +43,9 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    
 5. **Output :**
    ```
-   The sum from 1 to 10 is 55
+   The sum from 1 to 10 is 1275
    ```
-   ![WhatsApp Image 2024-08-07 at 3 21 34 PM (2)](https://github.com/user-attachments/assets/e4d271cf-b84a-4e35-8cd7-f49e9b09db42)
+   ![WhatsApp Image 2024-08-07 at 6 57 48 PM](https://github.com/user-attachments/assets/7dacd42c-2a4c-4227-8659-af7e769dd98c)
 
 6. **Conclusion :**
 
