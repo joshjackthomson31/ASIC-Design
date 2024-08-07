@@ -53,7 +53,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    In the above snap, it can be seen that the C program is complied successfully and the output is also correctly calculated i.e., 1275 ( 1+2+3+...+49+50 = 1275).
 
 #### Task-2 : Compile the C program code using RISC-V GNU compiler and optimising it using O1 and Ofast.
-1. **Compile the code using O1 optimisation:**
+1. **Compile the code using O1 optimisation :**
    ```
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum.o sum.c
    ```
@@ -72,6 +72,22 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ![WhatsApp Image 2024-08-07 at 6 30 19 PM](https://github.com/user-attachments/assets/c636e0dc-94b0-4724-9968-d26f9fe43dd7)
    ![WhatsApp Image 2024-08-07 at 7 09 57 PM (2)](https://github.com/user-attachments/assets/bf257908-e1b0-41bc-9443-d40e514f9b6c)
 
-4. **Observation-1 :**
+3. **Observation-1 :**
    
    We can see there are 14 lines of opcode in the main section.
+
+4. **Compile the code using Ofast optimisation :**
+   ```
+   riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o sum.o sum.c
+   ```
+   ![WhatsApp Image 2024-08-07 at 6 57 47 PM](https://github.com/user-attachments/assets/7274225e-f5cc-4fd0-82d5-2c20140b94a7)
+
+5. **Creating the output of the compiler i.e., .o file( object file) :**
+   ```
+   riscv64-unknown-elf-objdump -d sum.o | less
+   ```
+   When you type the above command, a list of opcode appears in the terminal. to obtain the main section of the program we need to type /main as shown below.
+   ```
+   /main
+   ```
+   
