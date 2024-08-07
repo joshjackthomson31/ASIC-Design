@@ -28,7 +28,8 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
        return 0;
    }
    ```
-   ![WhatsApp Image 2024-08-07 at 3 21 34 PM](https://github.com/user-attachments/assets/929bf6fd-8063-4c88-b2f3-8dd9b71323dd)
+   ![WhatsApp Image 2024-08-07 at 7 09 57 PM (1)](https://github.com/user-attachments/assets/ee35387c-5cec-459b-9e84-34ccc4ff890c)
+
 
 3. **Compile the code :**
    ```
@@ -43,7 +44,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    
 5. **Output :**
    ```
-   The sum from 1 to 10 is 1275
+   The sum from 1 to 50 is 1275
    ```
    ![WhatsApp Image 2024-08-07 at 6 57 48 PM](https://github.com/user-attachments/assets/7dacd42c-2a4c-4227-8659-af7e769dd98c)
 
@@ -56,7 +57,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum.o sum.c
    ```
-   ![WhatsApp Image 2024-08-07 at 6 14 02 PM](https://github.com/user-attachments/assets/8e30ab23-10f1-424f-9523-99b248931166)
+   ![WhatsApp Image 2024-08-07 at 7 09 57 PM](https://github.com/user-attachments/assets/c387346e-8e54-417f-8a00-89c5fcb48cae)
 
 
 2. **Creating the output of the compiler i.e., the .o file( object file) :**
@@ -67,10 +68,10 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    /main
    ```
-   ![WhatsApp Image 2024-08-07 at 6 30 19 PM](https://github.com/user-attachments/assets/47485245-1a0d-4430-b077-bd150b510a3f)
+   ![WhatsApp Image 2024-08-07 at 6 57 49 PM](https://github.com/user-attachments/assets/bfbeb764-c46e-43e9-a492-672731ba21de)
+   ![WhatsApp Image 2024-08-07 at 6 30 19 PM](https://github.com/user-attachments/assets/c636e0dc-94b0-4724-9968-d26f9fe43dd7)
+   ![WhatsApp Image 2024-08-07 at 7 09 57 PM (2)](https://github.com/user-attachments/assets/bf257908-e1b0-41bc-9443-d40e514f9b6c)
 
-   ![WhatsApp Image 2024-08-07 at 6 12 50 PM](https://github.com/user-attachments/assets/cde047f3-063a-4860-8b62-cdb6165a202c)
-
-3. **Observation-1 :**
+4. **Observation-1 :**
    
-   We can see there are 11 lines of opcode in the main section.
+   We can see there are 14 lines of opcode in the main section.
