@@ -37,3 +37,8 @@ int main()
    ```
    The sum from 1 to 10 is 55
    ```
+
+5. **Conclusion :**
+   ```
+   In the above snap, it can be seen that the C program is complied successfully and the output is also correctly calculated i.e., 55 ( 1+2+3+4+5+6+7+8+9+10 = 55).
+   ```
