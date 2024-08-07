@@ -100,8 +100,8 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
 
 7. **Results :**
    
-   The number of instructions using O1 optimisation = 14.
-   The number of instructions usinf Ofast optimisation = 11.
+   * The number of instructions using O1 optimisation = 14.
+   * The number of instructions usinf Ofast optimisation = 11.
 
 8. **Conclusion :**
    
