@@ -23,7 +23,12 @@ int main()
 }
 ```
 
-2. **Compiling the code :**
+2. **Compile the code :**
    ```markdown
    gcc sum.c
+   ```
+   
+3. **Run the code :**
+   ```markdown
+   ./a.out
    ```
