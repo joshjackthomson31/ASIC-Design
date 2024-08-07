@@ -90,4 +90,6 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    /main
    ```
-   
+   ![WhatsApp Image 2024-08-07 at 6 57 48 PM (1)](https://github.com/user-attachments/assets/6a1ab32e-3991-4cb1-88b3-bc239ef0eb81)
+   ![WhatsApp Image 2024-08-07 at 6 57 48 PM (2)](https://github.com/user-attachments/assets/3df29bd7-424a-480b-a70c-68273485446f)
+
