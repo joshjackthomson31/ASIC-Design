@@ -56,6 +56,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum.o sum.c
    ```
+   ![Uploading WhatsApp Image 2024-08-07 at 3.21.34 PM (3).jpeg…]()
 
 2. **Run the code :**
    ```
