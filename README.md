@@ -145,13 +145,14 @@ To debug the main section of the above program sum.c and to observe the values o
    reg 0 a0
    ```
    ![WhatsApp Image 2024-08-07 at 10 15 37 PM (2)](https://github.com/user-attachments/assets/ae0f546f-0fbe-4022-ba6f-1cc1f2c57d6d)
+   * lui a0, 0x21 command adds the register ao by 0x21.
 
-5. **Move PC to location 100b4 using the following command.**
+6. **Move PC to location 100b4 using the following command.**
    ```
    until pc 0 100b4
    ``` 
    
-6. **Checking the contents of sp.**
+7. **Checking the contents of sp.**
    ```
    reg 0 sp
    ```
