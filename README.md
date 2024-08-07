@@ -98,4 +98,5 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    We can see there are 11 lines of opcode in the main section.
 
 7. **Conclusion :**
+   
    The compilation in the Ofast procedure is more optimised.
