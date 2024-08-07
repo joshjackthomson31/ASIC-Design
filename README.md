@@ -90,8 +90,8 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    ```
    /main
    ```
-   ![WhatsApp Image 2024-08-07 at 6 57 48 PM (1)](https://github.com/user-attachments/assets/6a1ab32e-3991-4cb1-88b3-bc239ef0eb81)
-   ![WhatsApp Image 2024-08-07 at 6 57 48 PM (2)](https://github.com/user-attachments/assets/3df29bd7-424a-480b-a70c-68273485446f)
+   ![WhatsApp Image 2024-08-07 at 10 15 38 PM (1)](https://github.com/user-attachments/assets/56706ca5-2e96-45b3-a134-331c9fd63054)
+
 
 6. **Observation-2 :**
 
@@ -132,19 +132,22 @@ To debug the main section of the above program sum.c and to observe the values o
    ![WhatsApp Image 2024-08-07 at 10 15 37 PM (1)](https://github.com/user-attachments/assets/199d8fae-d602-45ef-99cb-c45dcb163c33)
 
    Here, 0x100b0 is the address of the start of main function.
-   Since register a2 is present at 0x100b0, we'll check register a0 before and after the execution of instructions.
+   Since register a0 is present at 0x100b0, we'll check register a0 before and after the execution of instructions.
    
 4. **Execution of the following commands to check he contents of register a0 before and after running the instructions.**
    ```
    reg 0 a0
    ```
-   
-5. **Move PC to location 100b8 using the following command.**
+   ![WhatsApp Image 2024-08-07 at 10 15 37 PM (2)](https://github.com/user-attachments/assets/ae0f546f-0fbe-4022-ba6f-1cc1f2c57d6d)
+
+5. **Move PC to location 100b4 using the following command.**
    ```
-   until pc 0 100b8
+   until pc 0 100b4
    ```
    
 6. **Checking the contents of sp.**
    ```
    reg 0 sp
    ```
+   ![WhatsApp Image 2024-08-07 at 10 15 38 PM (2)](https://github.com/user-attachments/assets/cf986585-5933-442a-b28c-ace004dd545d)
+
