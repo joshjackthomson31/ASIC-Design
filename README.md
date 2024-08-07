@@ -119,3 +119,13 @@ To debug the main section of the above program sum.c and to observe the values o
    ```
    spike -d pk sum.o
    ```
+
+3. **Bring the Program Counter( PC) to the start of main by using the following command.**
+   ```
+   until bc 0 100b0
+   ```
+4. **Execution of the following commands to check he contents of register a2 before and after running the instructions.**
+   ```
+   reg 0 a2
+   ```
+   Press ```Enter```
