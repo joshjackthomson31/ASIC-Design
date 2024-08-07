@@ -18,7 +18,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
    #include <stdio.h>
    int main() 
    {
-       int n = 10;
+       int n = 50;
        int sum = 0;
        for( int i = 1; i <= n; i++)
        {
@@ -49,7 +49,7 @@ To verify and compile a C program to find sum from 1 to n using GCC and RISC-V G
 
 6. **Conclusion :**
 
-   In the above snap, it can be seen that the C program is complied successfully and the output is also correctly calculated i.e., 55 ( 1+2+3+4+5+6+7+8+9+10 = 55).
+   In the above snap, it can be seen that the C program is complied successfully and the output is also correctly calculated i.e., 1275 ( 1+2+3+...+49+50 = 1275).
 
 #### Task-2 : Compile the C program code using RISC-V GNU compiler and optimising it using O1 and Ofast.
 1. **Compile the code using O1 optimisation:**
