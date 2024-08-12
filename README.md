@@ -347,3 +347,12 @@ To debug the main section of the above program sum.c and to observe the values o
 | BEQ r0, r0, 15     | B-type           | 0_000000_00000_00000_000_1111_0_1100011| 0x0000F063          |
 | LW r13, r11, 2     | I-type           | 000000000010_01011_010_01101_0000011   | 0x0025A693          |
 | SLL r15, r11, r2   | R-type           | 0000000_00010_01011_001_01111_0110011 | 0x0025B533          |
+
+---
+## LAB SESSION - 4
+
+### AIM
+* To use the RISC-V core verilog netlist and testbench for a functional simulation experiment.
+* To plot the waveform in gtkwave.
+
+### HARDCODED CODE BASED ON THE VERILOG TABLE
