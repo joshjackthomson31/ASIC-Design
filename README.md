@@ -209,10 +209,217 @@ SUB r6, r4, r5
 ```
 * Instruction Type: R-type.
 * Description: r6 will store the result of r4 minus r5.
-* **Opcode for SUB: ```0110011```
+* Opcode for SUB: ```0110011```
 * rd (destination register): r6 = ```00110```
 * rs1 (source register 1): r4 = ```00100```
 * rs2 (source register 2): r5 = ```00101```
 * func3: ```000```
 * func7: ```0100000```
-* 32-bit instruction: ```0100000_00101_00100_000_00110_0110011```**
+* 32-bit instruction: ```0100000_00101_00100_000_00110_0110011```
+
+```
+AND r5, r4, r6
+```
+* Instruction Type: R-type.
+* Description: r5 will store the bitwise AND of r4 and r6.
+* Opcode for AND: ```0110011```
+* rd (destination register): r5 = ```00101```
+* rs1 (source register 1): r4 = ```00100```
+* rs2 (source register 2): r6 = ```00110```
+* func3: ```111```
+* func7: ```0000000```
+* 32-bit instruction: ```0000000_00110_00100_111_00101_0110011```
+
+```
+OR r8, r5, r5
+```
+* Instruction Type: R-type.
+* Description: r8 will store the bitwise OR of r5 and r5.
+* Opcode for OR: ```0110011```
+* rd (destination register): r8 = ```01000```
+* rs1 (source register 1): r5 = ```00101```
+* rs2 (source register 2): r5 = ```00101```
+* func3: ```110```
+* func7: ```0000000```
+* 32-bit instruction: ```0000000_00101_00101_110_01000_0110011```
+
+```
+XOR r8, r4, r4
+```
+* Instruction Type: R-type.
+* Description: r8 will store the bitwise XOR of r4 and r4.
+* Opcode for XOR: ```0110011```
+* rd (destination register): r8 = ```01000```
+* rs1 (source register 1): r4 = ```00100```
+* rs2 (source register 2): r4 = ```00100```
+* func3: ```100```
+* func7: ```0000000```
+* 32-bit instruction: ```0000000_00100_00100_100_01000_0110011```
+
+```
+SLT r10, r2, r4
+```
+* Instruction Type: R-type.
+* Description: r10 will be set to 1 if r2 is less than r4, otherwise 0.
+* Opcode for SLT: ```0110011```
+* rd (destination register): r10 = ```01010```
+* rs1 (source register 1): r2 = ```00010```
+* rs2 (source register 2): r4 = ```00100```
+* func3: ```010```
+* func7: ```0000000```
+* 32-bit instruction: ```0000000_00100_00010_010_01010_0110011```
+
+```
+ADDI r12, r3, 5
+```
+* Instruction Type: I-type.
+* Description: r12 will store the sum of r3 and the immediate value 5.
+* Opcode for ADDI: ```0010011```
+* rd (destination register): r12 = ```01100```
+* rs1 (source register 1): r3 = ```00011```
+* imm[11:0] (immediate value): 5 = ```000000000101```
+* func3: ```000```
+* 32-bit instruction: ```000000000101_00011_000_01100_0010011```
+
+```
+SW r3, r1, 4
+```
+* 
+
+### 1. ADD r4, r5, r6
+- **Instruction Type**: R-type
+- **Description**: `r4` will store the sum of `r5` and `r6`.
+- **Opcode for ADD**: `0110011`
+- **rd (destination register)**: `r4 = 00100`
+- **rs1 (source register 1)**: `r5 = 00101`
+- **rs2 (source register 2)**: `r6 = 00110`
+- **func3**: `000`
+- **func7**: `0000000`
+- **32-bit instruction**: `0000000_00110_00101_000_00100_0110011`
+
+### 2. SUB r6, r4, r5
+- **Instruction Type**: R-type
+- **Description**: `r6` will store the result of `r4` minus `r5`.
+- **Opcode for SUB**: `0110011`
+- **rd (destination register)**: `r6 = 00110`
+- **rs1 (source register 1)**: `r4 = 00100`
+- **rs2 (source register 2)**: `r5 = 00101`
+- **func3**: `000`
+- **func7**: `0100000`
+- **32-bit instruction**: `0100000_00101_00100_000_00110_0110011`
+
+### 3. AND r5, r4, r6
+- **Instruction Type**: R-type
+- **Description**: `r5` will store the bitwise AND of `r4` and `r6`.
+- **Opcode for AND**: `0110011`
+- **rd (destination register)**: `r5 = 00101`
+- **rs1 (source register 1)**: `r4 = 00100`
+- **rs2 (source register 2)**: `r6 = 00110`
+- **func3**: `111`
+- **func7**: `0000000`
+- **32-bit instruction**: `0000000_00110_00100_111_00101_0110011`
+
+### 4. OR r8, r5, r5
+- **Instruction Type**: R-type
+- **Description**: `r8` will store the bitwise OR of `r5` and `r5`.
+- **Opcode for OR**: `0110011`
+- **rd (destination register)**: `r8 = 01000`
+- **rs1 (source register 1)**: `r5 = 00101`
+- **rs2 (source register 2)**: `r5 = 00101`
+- **func3**: `110`
+- **func7**: `0000000`
+- **32-bit instruction**: `0000000_00101_00101_110_01000_0110011`
+
+### 5. XOR r8, r4, r4
+- **Instruction Type**: R-type
+- **Description**: `r8` will store the bitwise XOR of `r4` and `r4`.
+- **Opcode for XOR**: `0110011`
+- **rd (destination register)**: `r8 = 01000`
+- **rs1 (source register 1)**: `r4 = 00100`
+- **rs2 (source register 2)**: `r4 = 00100`
+- **func3**: `100`
+- **func7**: `0000000`
+- **32-bit instruction**: `0000000_00100_00100_100_01000_0110011`
+
+### 6. SLT r10, r2, r4
+- **Instruction Type**: R-type
+- **Description**: `r10` will be set to 1 if `r2` is less than `r4`, otherwise 0.
+- **Opcode for SLT**: `0110011`
+- **rd (destination register)**: `r10 = 01010`
+- **rs1 (source register 1)**: `r2 = 00010`
+- **rs2 (source register 2)**: `r4 = 00100`
+- **func3**: `010`
+- **func7**: `0000000`
+- **32-bit instruction**: `0000000_00100_00010_010_01010_0110011`
+
+### 7. ADDI r12, r3, 5
+- **Instruction Type**: I-type
+- **Description**: `r12` will store the sum of `r3` and the immediate value 5.
+- **Opcode for ADDI**: `0010011`
+- **rd (destination register)**: `r12 = 01100`
+- **rs1 (source register 1)**: `r3 = 00011`
+- **imm[11:0] (immediate value)**: `5 = 000000000101`
+- **func3**: `000`
+- **32-bit instruction**: `000000000101_00011_000_01100_0010011`
+
+### 8. SW r3, r1, 4
+- **Instruction Type**: S-type
+- **Description**: Store the value in `r3` to the memory address calculated by `r1 + 4`.
+- **Opcode for SW**: `0100011`
+- **rs1 (source register 1)**: `r1 = 00001`
+- **rs2 (source register 2)**: `r3 = 00011`
+- **imm[11:5] and imm[4:0] (immediate value)**: `4 = 000000000100`
+- **func3**: `010`
+- **32-bit instruction**: `000000_00011_00001_010_000100_0100011`
+
+### 9. SRL r16, r11, r2
+- **Instruction Type**: R-type
+- **Description**: Perform a logical shift right on `r11` by the number of positions specified in `r2`, store the result in `r16`.
+- **Opcode for SRL**: `0110011`
+- **rd (destination register)**: `r16 = 10000`
+- **rs1 (source register 1)**: `r11 = 01011`
+- **rs2 (source register 2)**: `r2 = 00010`
+- **func3**: `101`
+- **func7**: `0000000`
+- **32-bit instruction**: `0000000_00010_01011_101_10000_0110011`
+
+### 10. BNE r0, r1, 20
+- **Instruction Type**: B-type
+- **Description**: Branch to PC + 20 if `r0` is not equal to `r1`.
+- **Opcode for BNE**: `1100011`
+- **rs1 (source register 1)**: `r0 = 00000`
+- **rs2 (source register 2)**: `r1 = 00001`
+- **imm[12:1] (immediate value)**: `20 = 000000010100`
+- **func3**: `001`
+- **32-bit instruction**: `0_000001_00001_00000_001_0100_0_1100011`
+
+### 11. BEQ r0, r0, 15
+- **Instruction Type**: B-type
+- **Description**: Branch to PC + 15 if `r0` is equal to `r0`.
+- **Opcode for BEQ**: `1100011`
+- **rs1 (source register 1)**: `r0 = 00000`
+- **rs2 (source register 2)**: `r0 = 00000`
+- **imm[12:1] (immediate value)**: `15 = 000000001111`
+- **func3**: `000`
+- **32-bit instruction**: `0_000000_00000_00000_000_1111_0_1100011`
+
+### 12. LW r13, r11, 2
+- **Instruction Type**: I-type
+- **Description**: Load the word from the memory address calculated by `r11 + 2` into `r13`.
+- **Opcode for LW**: `0000011`
+- **rd (destination register)**: `r13 = 01101`
+- **rs1 (source register 1)**: `r11 = 01011`
+- **imm[11:0] (immediate value)**: `2 = 000000000010`
+- **func3**: `010`
+- **32-bit instruction**: `000000000010_01011_010_01101_0000011`
+
+### 13. SLL r15, r11, r2
+- **Instruction Type**: R-type
+- **Description**: Perform a logical shift left on `r11` by the number of positions specified in `r2`, store the result in `r15`.
+- **Opcode for SLL**: `0110011`
+- **rd (destination register)**: `r15 = 01111`
+- **rs1 (source register 1)**: `r11 = 01011`
+- **rs2 (source register 2)**: `r2 = 00010`
+- **func3**: `001`
+- **func7**: `0000000`
+- **32-bit instruction**: `0000000_00010_01011_001_01111_0110011`
