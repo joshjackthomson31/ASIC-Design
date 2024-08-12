@@ -356,3 +356,6 @@ To debug the main section of the above program sum.c and to observe the values o
 * To plot the waveform in gtkwave.
 
 ### HARDCODED CODE BASED ON THE VERILOG TABLE
+* The opcode varies for each instruction type in the verilog code.
+* Different instructions have different func3 values.
+* To distinguish between immediate operations and other arithmetic operations, func7 is used. Otherwisr, func7 is set to be 0.
