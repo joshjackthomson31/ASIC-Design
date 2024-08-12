@@ -359,6 +359,7 @@ To debug the main section of the above program sum.c and to observe the values o
 * The opcode varies for each instruction type in the verilog code.
 * Different instructions have different func3 values.
 * To distinguish between immediate operations and other arithmetic operations, func7 is used. Otherwisr, func7 is set to be 0.
+  
 
 | Instruction       | Instruction Type | 32-bit Pattern                  | Hexadecimal Pattern | Hardcoded 32-bit Pattern | Hardcoded Hexadecimal Pattern |
 |-------------------|------------------|---------------------------------|---------------------|------------------------------------|------------------------------------|
@@ -382,7 +383,9 @@ To debug the main section of the above program sum.c and to observe the values o
 |
 | BEQ r0, r0, 15     | B-type           | 000000000000 00000 000 00000 1100011| 0x00000f63          | 000000000000 00000 000 00000 11000000| 0x00f00002                       
 
-| ADD r14, r2, r2     | B-type           | 00000000001000010000011100110011| 0x00210733          | 00000000001000010000011100000000| 0x00210700                      
+| ADD r14, r2, r2     | B-type           | 00000000001000010000011100110011| 0x00210733          | 00000000001000010000011100000000| 0x00210700            
+
+
 
 
 ### OUTPUT WAVEFORM
