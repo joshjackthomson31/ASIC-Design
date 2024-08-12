@@ -159,3 +159,47 @@ To debug the main section of the above program sum.c and to observe the values o
    ![WhatsApp Image 2024-08-07 at 10 15 38 PM (2)](https://github.com/user-attachments/assets/cf986585-5933-442a-b28c-ace004dd545d)
    * addi sp, sp, -16 reduces the sp pointer by 16.
    * sp pointer gets updated from 0x0000003ffffffb50 to 0x0000003ffffffb40.
+
+---
+## LAB SESSION - 3
+
+### AIM
+* To identify different instruction types ( R-type, I-type, S-type, B-type, U-type, J-type).
+* To write the 32-bit pattern code for each instruction.
+
+### INSTRUCTIONS
+```
+ ADD r4, r5, r6
+ SUB r6, r4, r5
+ AND r5, r4, r6
+ OR r8, r5, r5
+ XOR r8, r4, r4
+ SLT r10, r2, r4
+ ADDI r12, r3, 5
+ SW r3, r1, 4
+ SRL r16, r11, r2
+ BNE r0, r1, 20
+ BEQ r0, r0, 15
+ LW r13, r11, 2
+ SLL r15, r11, r2
+```
+
+### RISC-V BASE INSTRUCTION FORMATS
+![WhatsApp Image 2024-08-10 at 11 32 17 PM](https://github.com/user-attachments/assets/bced5b57-39ba-44c4-9767-70bf0017e8a9)
+
+### BASE INSTRUCTION TABLE
+![WhatsApp Image 2024-08-10 at 11 31 46 PM](https://github.com/user-attachments/assets/dfd4a9a9-9ef4-4ba1-9b46-151a9e219b47)
+
+### 32-bit pattern for all the instructions and their RISC-V instruction type
+```
+ADD r4, r5, r6
+```
+* Instruction Type: R-type.
+* Description: r4 will store the sum of r5 and r6.
+* Opcode for ADD: ```0110011```
+* rd (destination register): r4 = ```00100```
+* rs1 (source register 1): r5 = ```00101```
+* rs2 (source register 2): r6 = ```00110```
+* func3: ```000```
+* func7: ```0000000```
+32-bit instruction: ```0000000_00110_00101_000_00100_0110011```
