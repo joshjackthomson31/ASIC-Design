@@ -332,8 +332,6 @@ To debug the main section of the above program sum.c and to observe the values o
 
 ### SUMMARY TABLE
 
-## RISC-V 32-bit Instruction Patterns
-
 | Instruction       | Instruction Type | 32-bit Pattern                  | Hexadecimal Pattern |
 |-------------------|------------------|---------------------------------|---------------------|
 | ADD r4, r5, r6     | R-type           | 0000000_00110_00101_000_00100_0110011 | 0x00B28233          |
