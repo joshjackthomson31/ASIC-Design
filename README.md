@@ -192,7 +192,7 @@ To debug the main section of the above program sum.c and to observe the values o
 
 ### 32-bit pattern for all the instructions and their RISC-V instruction type
 
-## 1. ```ADD r4, r5, r6```
+## `1. ADD r4, r5, r6`
 - **Instruction Type**: R-type
 - **Description**: `r4` will store the sum of `r5` and `r6`.
 - **Opcode for ADD**: `0110011`
