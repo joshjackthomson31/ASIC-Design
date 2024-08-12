@@ -203,3 +203,16 @@ ADD r4, r5, r6
 * func3: ```000```
 * func7: ```0000000```
 * 32-bit instruction: ```0000000_00110_00101_000_00100_0110011```
+
+```
+SUB r6, r4, r5
+```
+* Instruction Type: R-type.
+* Description: r6 will store the result of r4 minus r5.
+* Opcode for SUB: ```0110011```
+* rd (destination register): r6 = ```00110```
+* rs1 (source register 1): r4 = ```00100```
+* rs2 (source register 2): r5 = ```00101```
+* func3: ```000```
+* func7: ```0100000```
+* 32-bit instruction: ```0100000_00101_00100_000_00110_0110011```
