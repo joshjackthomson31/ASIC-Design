@@ -502,3 +502,6 @@ riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o powercalc.o powercalc.c
 spike pk powercalc.o
 ```
 ![WhatsApp Image 2024-08-14 at 9 25 08 PM](https://github.com/user-attachments/assets/cf74d222-c84c-426f-939d-4f470fe8ffe3)
+
+### CONCLUSION
+* We can observe that the output is same when compiled using both GCC and RISC-V GCC compilers. This indicates that the program's logic is platform-independent.
