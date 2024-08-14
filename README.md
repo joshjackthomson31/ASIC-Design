@@ -375,7 +375,7 @@ To debug the main section of the above program sum.c and to observe the values o
 | BEQ r0, r0, 15     | 000000000000 00000 000 00000 1100011| 0x00000f63          | 000000000000 00000 000 00000 11000000| 0x00f00002       |                
 | ADD r14, r2, r2     | 00000000001000010000011100110011| 0x00210733          | 00000000001000010000011100000000| 0x00210700            | -->
 
-
+### Custom Instructions Used in the previous task
 | Instruction       | 32-bit Pattern                  | Hexadecimal Pattern |
 |-------------------|---------------------------------|---------------------|
 | ADD r4, r5, r6     | 0000000_00110_00101_000_00100_0110011 | 0x00628233          |
@@ -392,7 +392,7 @@ To debug the main section of the above program sum.c and to observe the values o
 | LW r13, r11, 2     | 000000000010_01011_010_01101_0000011   | 0x0025A683          |
 | SLL r15, r11, r2   | 0000000_00010_01011_001_01111_0110011 | 0x002597B3          |
 
-
+### Differences between Standard RISC-V ISA and Hardcoded ISA
 | Instruction       | Hexadecimal Pattern | Hardcoded Hexadecimal Pattern |
 |-------------------|---------------------|------------------------------------|
 | ADD r6, r1, r2     | 0x00110333         | 0x02208300  |
