@@ -376,6 +376,19 @@ To debug the main section of the above program sum.c and to observe the values o
 | ADD r14, r2, r2     | 00000000001000010000011100110011| 0x00210733          | 00000000001000010000011100000000| 0x00210700            |
 
 
+| Instruction       | Hexadecimal Pattern | Hardcoded Hexadecimal Pattern |
+|-------------------|---------------------|------------------------------------|
+| ADD r6, r1, r2     | 0x00110333         | 0x02208300  |
+| SUB r7, r1, r2     | 0x402083b3          | 0x02209380   |  
+| AND r8, r1, r3     | 0x0030f433          | 0x0230a400      |
+| OR r9, r2, r5      | 0x005164b3          | 0x02513480     |   
+| XOR r10, r1, r4    | 0x0040c533          | 0x0240c500     |                   
+| SLT r11, r2, r4    | 0x0045a0b3          | 0x02415580   |
+| ADDI r12, r4, 5    | 0x004120b3         | 0x00520600     |                 
+| SW r3, r1, 2       | 0x0030a123         | 0x00209181       |                
+| LW r13, r1, 2      | 0x0020a683          | 0x00208681 |
+| BEQ r0, r0, 15     | 0x00000f63          | 0x00f00002       |                
+| ADD r14, r2, r2    | 0x00210733          | 0x00210700            |
 
 
 ### OUTPUT WAVEFORM
