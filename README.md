@@ -457,7 +457,7 @@ To debug the main section of the above program sum.c and to observe the values o
 * To create a power calculator that calculates the the power of a number to another number.
 
 ### C CODE FOR THE APPLICATION
-`
+```
 #include <stdio.h>
 
 double power( int a, int b)
@@ -484,21 +484,21 @@ int main()
         printf( "%d to the power of %d is %g\n", a, b, result);
         return 0;
 }
-`
+```
 ![WhatsApp Image 2024-08-14 at 9 21 38 PM](https://github.com/user-attachments/assets/7b4aa55f-9ca8-4e5a-93e3-065bf121ff20)
 
 ### CASE 1 : Running using GCC compiler
-`
+```
 gcc powercalc.c
 ./a.out
-`
+```
 ![WhatsApp Image 2024-08-14 at 9 23 54 PM](https://github.com/user-attachments/assets/ba20d9b9-b532-414c-ab81-6c8a7b7cb9bf)
 
 ### CASE 2 : Running using RISC-V GCC compiler
 * Compile using the O1 optimization for the RISC-V 64-bit architecture.
 * Spike Simulator is used to run the RISC-V 64-bit architecture.
-`
+```
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o powercalc.o powercalc.c
 spike pk powercalc.o
-`
+```
 ![WhatsApp Image 2024-08-14 at 9 25 08 PM](https://github.com/user-attachments/assets/cf74d222-c84c-426f-939d-4f470fe8ffe3)
