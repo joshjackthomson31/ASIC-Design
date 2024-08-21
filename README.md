@@ -508,6 +508,8 @@ spike pk powercalc.o
 
 ---
 ## LAB SESSION - 6
+## Day 3
+---
 ### Digital Logic Design and TL-Verilog with Makerchip : 
 ### Logic Gates : 
 * Logic gates are essential elements in digital circuits, carrying out key logical operations on binary input signals. They form the foundation of complex systems, such as processors, memory units, and controllers. Operating on binary signals, where "0" represents a low voltage level and "1" represents a high voltage level, logic gates receive one or more input signals and generate an output signal according to defined logical functions.
@@ -711,3 +713,194 @@ $cnt[31:0] = $reset ? 0 : (>>1$cnt + 1);
 ```
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 10 17 PM" src="https://github.com/user-attachments/assets/8fc5105b-cfb7-4d60-aa31-ec22c7036761">
+
+---
+## Day 4
+---
+### Basic RISC-V CPU Micro-architecture
+* This section will discuss the implementation of a basic 3-stage RISC-V Core/CPU.
+* The three main stages are: Fetch, Decode, and Execute.
+
+A basic block diagram of the CPU core is shown below.
+<img width="517" alt="Screenshot 2024-08-21 at 10 52 47 PM" src="https://github.com/user-attachments/assets/4f15ad5a-4055-4829-82df-c5dd2258444b">
+
+### Program Counter
+* The Program Counter, also known as the Instruction Pointer, is a component that holds the address of the next instruction to be executed. It typically increments by 4 to fetch the subsequent instruction from memory. If a reset occurs, the Program Counter is reinitialized to zero for the next instruction, and then it resumes operation.
+#### Code
+```
+$pc[31:0] = >>1$reset ? 0 : ( >>1$pc + 31'h4 );
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 58 38 PM" src="https://github.com/user-attachments/assets/52c97945-be5c-4102-b0ba-ae1173704cbc">
+
+### Adding instruction memory
+* The output of the Program Counter (PC) is sent to the instruction memory, which then provides the instruction to be executed.
+* The PC increments by 4 with each valid cycle.
+* This output is used to retrieve an instruction from the instruction memory, which outputs a 32-bit instruction based on the provided address.
+* During the Fetch stage, the processor retrieves the instruction from the instruction memory using the address specified by the PC.
+
+#### Code
+```
+$imem_rd_en = >>1$reset ? 0 : 1;
+$imem_rd_addr[31:0] = $pc[M4_IMEM_INDEX_CNT+1:2];
+$instr[31:0] = $imem_rd_data[31:0];
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 05 26 PM" src="https://github.com/user-attachments/assets/738ab0a6-a773-4768-a513-9d8ec90e66e4">
+
+### Decoding instruction
+* The 32-bit fetched instruction must first be decoded to determine the operation to be performed and the source/destination addresses. There are six types of instructions:
+
+- R-type: Register
+- I-type: Immediate
+- S-type: Store
+- B-type: Branch (Conditional Jump)
+- U-type: Upper Immediate
+- J-type: Jump (Unconditional Jump)
+
+* The instruction format includes the Opcode, immediate value, source address, and destination address.
+* During the Decode stage, the processor interprets the instruction based on its format and type.
+* Typically, the RISC-V ISA offers 32 registers, each with a width of XLEN (e.g., XLEN = 32 for RV32).
+* The register file used here supports 2 reads and 1 write simultaneously.
+
+<img width="844" alt="Screenshot 2024-08-21 at 10 10 45 PM" src="https://github.com/user-attachments/assets/68a50379-7be3-4b7f-855f-c50141e9cd33">
+
+#### Code
+```
+$is_i_instr = $instr[6:2] ==? 5'b0000x ||
+              $instr[6:2] ==? 5'b001x0 ||
+              $instr[6:2] ==? 5'b11001;
+$is_r_instr = $instr[6:2] ==? 5'b01011 ||
+              $instr[6:2] ==? 5'b011x0 ||
+              $instr[6:2] ==? 5'b10100;
+$is_s_instr = $instr[6:2] ==? 5'b0100x;
+$is_b_instr = $instr[6:2] ==? 5'b11000;
+$is_j_instr = $instr[6:2] ==? 5'b11011;
+$is_u_instr = $instr[6:2] ==? 5'b0x101;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 06 58 PM" src="https://github.com/user-attachments/assets/69484e57-a88f-4d5b-a8f2-7d76ad610f62">
+
+### Immediate decode logic
+<img width="823" alt="Screenshot 2024-08-21 at 11 42 19 PM" src="https://github.com/user-attachments/assets/109f8017-f7dc-4ca3-9242-7d76c1ba1e47">
+
+#### Code
+```
+$imm[31:0] = $is_i_instr ? {{21{$instr[31]}}, $instr[30:20]} :
+             $is_s_instr ? {{21{$instr[31]}}, $instr[30:25], $instr[11:7]} :
+             $is_b_instr ? {{20{$instr[31]}}, $instr[7], $instr[30:25], $instr[11:8], 1'b0} :
+             $is_u_instr ? {$instr[31:12], 12'b0} :
+             $is_j_instr ? {{12{$instr[31]}}, $instr[19:12], $instr[20], $instr[30:21], 1'b0} : 32'b0;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 09 31 PM" src="https://github.com/user-attachments/assets/0e9b437e-c364-469f-8cfc-f2c3778c65b7">
+
+### Decode logic for other fields
+#### Code
+```
+         $rs2_valid = $is_r_instr || $is_s_instr || $is_b_instr;
+         ?$rs2_valid
+            $rs2[4:0] = $instr[24:20];
+            
+         $rs1_valid = $is_r_instr || $is_i_instr || $is_s_instr || $is_b_instr;
+         ?$rs1_valid
+            $rs1[4:0] = $instr[19:15];
+         
+         $funct3_valid = $is_r_instr || $is_i_instr || $is_s_instr || $is_b_instr;
+         ?$funct3_valid
+            $funct3[2:0] = $instr[14:12];
+            
+         $funct7_valid = $is_r_instr ;
+         ?$funct7_valid
+            $funct7[6:0] = $instr[31:25];
+            
+         $rd_valid = $is_r_instr || $is_i_instr || $is_u_instr || $is_j_instr;
+         ?$rd_valid
+            $rd[4:0] = $instr[11:7];
+
+         $opcode[6:0] = $instr[6:0];
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 11 51 PM" src="https://github.com/user-attachments/assets/b2d1a70d-ec17-4f13-a68b-41cef3f813c2">
+
+### Decoding individual instructions
+#### Code
+```
+$dec_bits [10:0] = {$funct7[5], $funct3, $opcode};
+$is_beq = $dec_bits ==? 11'bx_000_1100011;
+$is_bne = $dec_bits ==? 11'bx_001_1100011;
+$is_blt = $dec_bits ==? 11'bx_100_1100011;
+$is_bge = $dec_bits ==? 11'bx_101_1100011;
+$is_bltu = $dec_bits ==? 11'bx_110_1100011;
+$is_bgeu = $dec_bits ==? 11'bx_111_1100011;
+$is_addi = $dec_bits ==? 11'bx_000_0010011;
+$is_add = $dec_bits ==? 11'b0_000_0110011;
+```
+#### Program counter should be updated as below.
+```
+$pc[31:0] = >>1$reset ? 32'b0 :
+            >>1$taken_branch ? >>1$br_target_pc :
+            >>1$pc + 32'd4;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 18 36 PM" src="https://github.com/user-attachments/assets/f8fc7f56-2a30-46c1-b363-f2d4d0f7d589">
+
+### Register file Read and Enable
+#### Code
+```
+$rf_rd_en1 = $rs1_valid;
+$rf_rd_en2 = $rs2_valid;
+$rf_rd_index1[4:0] = $rs1;
+$rf_rd_index2[4:0] = $rs2;
+$src1_value[31:0] = $rf_rd_data1;
+$src2_value[31:0] = $rf_rd_data2;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 26 24 PM" src="https://github.com/user-attachments/assets/105b2686-81f4-4316-9b99-704215c94c6d">
+
+### ALU
+#### Code
+```
+$result[31:0] = $is_addi ? $src1_value + $imm :
+                $is_add ? $src1_value + $src2_value :
+                32'bx ;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 27 14 PM" src="https://github.com/user-attachments/assets/f2c70e3f-6d93-4fae-a9ab-3818776c9eec">
+
+### Register file write
+* Once the ALU completes operations on the values in the registers, these results may need to be written back into the registers.
+* This is done using the register file write.
+* It is important to ensure that no values are written to the destination register if it is x0, as this register is always intended to remain 0.
+#### Code
+```
+$rf_wr_en = $rd_valid && $rd != 5'b0;
+$rf_wr_index[4:0] = $rd;
+$rf_wr_data[31:0] = $result;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 30 37 PM" src="https://github.com/user-attachments/assets/f7d15043-067b-4632-9975-0752cf3f0e31">
+
+### Branch instructions
+#### Code
+```
+$taken_branch = $is_beq ? ($src1_value == $src2_value):
+                $is_bne ? ($src1_value != $src2_value):
+                $is_blt ? (($src1_value < $src2_value) ^ ($src1_value[31] != $src2_value[31])):
+                $is_bge ? (($src1_value >= $src2_value) ^ ($src1_value[31] != $src2_value[31])):
+                $is_bltu ? ($src1_value < $src2_value):
+                $is_bgeu ? ($src1_value >= $src2_value):1'b0;
+
+$br_target_pc[31:0] = $pc +$imm;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 30 37 PM" src="https://github.com/user-attachments/assets/fc614e9c-4eb5-4f52-b77b-7e83a81e9066">
+
+### Testbench
+* In order to check whether the code is correct or not, we can verify using testbench for the 1st five cycles.
+#### Code
+```
+*passed = |cpu/xreg[10]>>5$value == (1+2+3+4+5+6+7+8+9) ;
+```
+* If we check the log file, we can get the following result.
+<img width="1440" alt="Screenshot 2024-08-21 at 11 57 53 PM" src="https://github.com/user-attachments/assets/a6e31c88-632e-444e-a504-52ee71793fee">
