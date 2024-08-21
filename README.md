@@ -721,7 +721,7 @@ $cnt[31:0] = $reset ? 0 : (>>1$cnt + 1);
 * This section will discuss the implementation of a basic 3-stage RISC-V Core/CPU.
 * The three main stages are: Fetch, Decode, and Execute.
 
-A basic block diagram of the CPU core is shown below.
+#### A basic block diagram of the CPU core is shown below.
 <img width="517" alt="Screenshot 2024-08-21 at 10 52 47 PM" src="https://github.com/user-attachments/assets/4f15ad5a-4055-4829-82df-c5dd2258444b">
 
 ### Program Counter
@@ -902,5 +902,5 @@ $br_target_pc[31:0] = $pc +$imm;
 ```
 *passed = |cpu/xreg[10]>>5$value == (1+2+3+4+5+6+7+8+9) ;
 ```
-* If we check the log file, we can get the following result.
+#### If we check the log file, we can get the following result.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 57 53 PM" src="https://github.com/user-attachments/assets/a6e31c88-632e-444e-a504-52ee71793fee">
