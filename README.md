@@ -515,25 +515,187 @@ spike pk powercalc.o
 The below table contains some common logic gates.
 <img width="857" alt="Screenshot 2024-08-21 at 9 54 54 PM" src="https://github.com/user-attachments/assets/ec55f756-47e6-44ec-8ccc-9ad2c8b1a740">
 
-TL - Verilog : 
+### TL - Verilog : 
 * TL-Verilog is an advanced extension of traditional Verilog, developed by Redwood EDA, aimed at simplifying hardware design and modeling. It streamlines the design process with a more abstract and efficient syntax, while maintaining compatibility with standard Verilog. TL-Verilog enables transaction-level modeling, which simplifies the management of complex microarchitectures by allowing transactions to move through the architecture and interact with components such as pipelines, arbiters, and queues. This approach is particularly effective in minimizing bugs and enhancing the design process when using tools like Makerchip.
 
-Makerchip IDE : 
+### Makerchip IDE : 
 * Makerchip IDE is a robust platform for digital design, offering an all-in-one environment for coding, simulation, and testing of HDL designs. It supports languages such as TL-Verilog, SystemVerilog, Verilog, and VHDL, providing a visual interface to build and simulate digital systems in real-time. Its intuitive interface and comprehensive features make it suitable for both novice and experienced designers. Makerchip allows you to efficiently prototype, debug, and optimize your digital designs, ensuring they work correctly before proceeding to hardware implementation.
 
-## Basic Combinational Circuits : 
+## BASIC COMBINATIONAL CIRCUITS : 
 ### 1. Inverter
-
-### Code
+#### Code
 ```$out = ! $in;```
-
-###The generated block diagram and waveforms are shown below.
+#### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 9 59 52 PM" src="https://github.com/user-attachments/assets/71863040-7e07-44dc-88ed-af3bcaee3c35">
 
 ### 2. Arithmetic Operation on Vectors
-
-### Code
+#### Code
 ```$out[4:0] = $in1[3:0] + $in2[3:0];```
-
-### The generated block diagram and waveforms are shown below.
+#### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 00 25 PM" src="https://github.com/user-attachments/assets/96b770e3-e591-4f18-a781-05e77454bfd3">
+
+### 3. 2-input AND gate
+#### Code
+```$out = $in1 && $in2;```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 01 01 PM" src="https://github.com/user-attachments/assets/9ccdfafc-421c-458f-92db-a902deec6ba7">
+
+### 4. 2-inoput OR gate
+#### Code
+```$out = $in1 || $in2;```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 01 38 PM" src="https://github.com/user-attachments/assets/01a0e546-6a4c-4fef-8065-1071c71ae7b6">
+
+### 5. 2-input XOR gate
+#### Code
+```$out = $in1 ^ $in2;```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 02 10 PM" src="https://github.com/user-attachments/assets/e0d65059-c583-43b9-b615-7cfe4b4c3936">
+
+### 6. 2:1 MUX
+#### Code
+```$out[11:0] = $sel ? $in1[11:0] : $in0[11:0];```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 02 36 PM" src="https://github.com/user-attachments/assets/f3527722-2325-4148-a183-ae72a1700b09">
+
+### 7. Combinational Calculator
+* This calculator performs basic fundamental operations such as addition, subtraction, multipication, division.
+#### Code
+```$val1[31:0] = $rand1[3:0];
+$val2[31:0] = $rand2[3:0];
+
+$sum[31:0]  = $val1[31:0] + $val2[31:0];
+$diff[31:0] = $val1[31:0] - $val2[31:0];
+$prod[31:0] = $val1[31:0] * $val2[31:0];
+$quot[31:0] = $val1[31:0] / $val2[31:0];
+
+$out[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+             ($sel[1:0] == 2'b01) ? $diff[31:0]:
+             ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                    $quot[31:0];
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 03 32 PM" src="https://github.com/user-attachments/assets/695ca1b0-220f-44b9-96c6-8bfcb313661f">
+
+## SEQUENTIAL CIRCUITS :
+* A sequential circuit is a type of digital circuit that incorporates memory components to store data, enabling it to produce outputs based on both the current inputs and its previous state. Unlike combinational circuits, which rely solely on present inputs, sequential circuits use feedback loops and storage elements like flip-flops or registers to maintain their internal state. This internal state, combined with current inputs, determines the circuit's behavior, allowing it to perform tasks that depend on input history, such as counting, data storage, or event sequencing.
+
+### 1. Fibonacci Series
+#### Code
+```
+$num[31:0] = $reset ? 1 : (>>1$num + >>2$num);
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 04 39 PM" src="https://github.com/user-attachments/assets/47256c0c-ed64-45e1-8a64-91b3747a62c8">
+
+### 2. Counter Series
+#### Code
+```
+$cnt[31:0] = $reset ? 0 : (>>1$cnt + 1);
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 05 30 PM" src="https://github.com/user-attachments/assets/62ce46dc-c45f-4da4-b7e4-2c8849e2897b">
+
+### 3. Sequential Calculator
+#### Code
+```
+   $val1[31:0] = >>2$out;
+   $val2[31:0] = $rand2[3:0];
+
+   $sum[31:0]  = $val1[31:0] + $val2[31:0];
+   $diff[31:0] = $val1[31:0] - $val2[31:0];
+   $prod[31:0] = $val1[31:0] * $val2[31:0];
+   $quot[31:0] = $val1[31:0] / $val2[31:0];
+
+   $nxt[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+                ($sel[1:0] == 2'b01) ? $diff[31:0]:
+                ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                       $quot[31:0];
+   
+   $out[31:0] = $reset ? 32'h0 : $nxt;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 06 38 PM" src="https://github.com/user-attachments/assets/e17a08e2-54d2-4399-8651-ff036efddf19">
+
+## PIPELINED LOGIC
+* In Transaction-Level Verilog (TL-Verilog), pipelined logic is effectively represented using pipeline constructs that capture the flow of data through various design stages, each aligned with a clock cycle. This method streamlines the modeling of sequential logic by automatically managing state propagation, allowing for clear and concise descriptions of complex, multi-stage operations, which enhances both the clarity and maintainability of the design.
+
+### 1. Recreating the design
+#### Code
+```|pipe
+  @1
+    $err1 = $bad_input || $illegal_op;
+  @3
+    $err2 = $over_flow || $err1;
+  @6
+    $err3 = $div_by_zero || $err2;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 08 46 PM" src="https://github.com/user-attachments/assets/e8e129be-5cc9-4447-9fd5-d604b15a3af0">
+
+### 2. Pipelined calculator
+#### Code
+```   |cal
+      @1
+         $reset = *reset;
+         $clk_kar = *clk;
+
+         $valid[31:0] = $reset ? 0 : (>>1$valid + 1);
+         $nreset = $reset | ~$valid;
+         
+         $val1[31:0] = >>2$out;
+         $val2[31:0] = $rand2[3:0];
+
+         $sum[31:0]  = $val1[31:0] + $val2[31:0];
+         $diff[31:0] = $val1[31:0] - $val2[31:0];
+         $prod[31:0] = $val1[31:0] * $val2[31:0];
+         $quot[31:0] = $val1[31:0] / $val2[31:0];
+         
+      @2
+         $nxt[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+                      ($sel[1:0] == 2'b01) ? $diff[31:0]:
+                      ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                             $quot[31:0];
+        
+         
+         $out[31:0] = $nreset ? 32'h0 : $nxt;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 09 27 PM" src="https://github.com/user-attachments/assets/5c22dc15-388c-4d65-a144-d541ffe750c7">
+
+### 3. Cycle calculator with validity
+#### Code
+```
+   $reset = *reset;
+   $clk_kar = *clk;
+   
+   |cal
+      @1
+         $reset = *reset;
+         $clk_kar = *clk;
+         
+         $cnt[31:0] = $reset ? 0 : (>>1$cnt + 1);
+         $valid = $cnt;
+         $valid_or_reset = ($reset | $valid);
+         
+      
+      ?$valid
+         @1
+            $val1[31:0] = >>2$out;
+            $val2[31:0] = $rand2[3:0];
+            
+            $sum[31:0]  = $val1[31:0] + $val2[31:0];
+            $diff[31:0] = $val1[31:0] - $val2[31:0];
+            $prod[31:0] = $val1[31:0] * $val2[31:0];
+            $quot[31:0] = $val1[31:0] / $val2[31:0];
+            
+         @2
+            $nxt[31:0] = ($sel[1:0] == 2'b00) ? $sum[31:0]:
+                         ($sel[1:0] == 2'b01) ? $diff[31:0]:
+                         ($sel[1:0] == 2'b10) ? $prod[31:0]:
+                                                $quot[31:0];
+            
+            $out[31:0] = $valid_or_reset ? 32'h0 : $nxt;
+```
+#### The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 10 17 PM" src="https://github.com/user-attachments/assets/8fc5105b-cfb7-4d60-aa31-ec22c7036761">
