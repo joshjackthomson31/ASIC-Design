@@ -921,3 +921,60 @@ $br_target_pc[31:0] = $pc +$imm;
 ---
 ## Day 5
 ---
+### Complete Pipelined RISC-V CPU Micro-architecture
+* Once pipelining is validated through simulations, support for Jump instructions is added.
+* Additionally, the implementation of Instruction Decode and the ALU for the RV32I Base Integer Instruction Set are integrated.
+
+### Valid signal for pipelined logic : 
+* The TL-Verilog code to introduce valid signal for pipelined logic is given below.
+```
+$start = >>1$reset && !$reset;
+$valid = $reset ? 1'b0 : ($start || >>3$valid);
+$valid_or_reset = $valid || $reset;
+$rs1_or_funct3_valid    = $is_r_instr || $is_i_instr || $is_s_instr || $is_b_instr;
+$rs2_valid              = $is_r_instr || $is_s_instr || $is_b_instr;
+$rd_valid               = $is_r_instr || $is_i_instr || $is_u_instr || $is_j_instr;
+$funct7_valid           = $is_r_instr;
+```
+### Handling data hazards in register file with bypassing : 
+```
+$src1_value[31:0] = $rs1_bypass ? >>1$result[31:0] : $rf_rd_data1[31:0];
+$src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
+```
+### Correecting branch target path : 
+```
+   //Current instruction is valid if one of the previous 2 instructions were not (taken_branch or load or jump)
+   $valid = ~(>>1$valid_taken_br || >>2$valid_taken_br || >>1$is_load || >>2$is_load || >>2$jump_valid 	|| >>1$jump_valid);
+         
+   //Current instruction is valid & is a taken branch
+   $valid_taken_br = $valid && $taken_br;
+         
+   //Current instruction is valid & is a load
+   $valid_load = $valid && $is_load;
+         
+   //Current instruction is valid & is jump
+   $jump_valid = $valid && $is_jump;
+   $jal_valid  = $valid && $is_jal;
+   $jalr_valid = $valid && $is_jalr;
+    
+    *passed = |cpu/xreg[14]>>5$value == (1+2+3+4+5+6+7+8+9+10);
+```
+### Final check for passed condition : 
+```
+*passed = |cpu/xreg[14]>>5$value == (1+2+3+4+5+6+7+8+9+10);
+```
+### Results
+#### Block Diagram
+<img width="1440" alt="Screenshot 2024-08-22 at 1 43 30 AM" src="https://github.com/user-attachments/assets/b5664bdf-9a2e-4fcc-afcf-00ef76c1722f">
+
+#### VIZ table
+<img width="1440" alt="Screenshot 2024-08-22 at 1 44 41 AM" src="https://github.com/user-attachments/assets/69b81a41-edc7-4dd6-b4ce-da163f20c3f9">
+
+#### Clock waveform
+<img width="1440" alt="Screenshot 2024-08-22 at 1 45 27 AM" src="https://github.com/user-attachments/assets/b4091c08-bc85-4964-8724-ecdd7035ee1c">
+
+#### Reset waveform
+<img width="1440" alt="Screenshot 2024-08-22 at 1 45 57 AM" src="https://github.com/user-attachments/assets/bb2091ce-a4d3-4156-b248-2d0d24c78ce3">
+
+#### Final result waveform
+<img width="1440" alt="Screenshot 2024-08-22 at 1 46 32 AM" src="https://github.com/user-attachments/assets/27bbb168-68ce-494b-9263-561af783ca2e">
