@@ -904,3 +904,20 @@ $br_target_pc[31:0] = $pc +$imm;
 ```
 #### If we check the log file, we can get the following result.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 57 53 PM" src="https://github.com/user-attachments/assets/a6e31c88-632e-444e-a504-52ee71793fee">
+
+### 12. Results
+#### Block Diagram
+<img width="1440" alt="Screenshot 2024-08-22 at 1 25 11 AM" src="https://github.com/user-attachments/assets/e8aa2015-b89d-4f72-8e46-544523adc5f2">
+
+#### Clock waveform
+<img width="1440" alt="Screenshot 2024-08-22 at 1 25 59 AM" src="https://github.com/user-attachments/assets/c0aca3ac-5527-4652-ad22-a0cf25bc80b4">
+
+#### Reset waveform
+<img width="1440" alt="Screenshot 2024-08-22 at 1 26 05 AM" src="https://github.com/user-attachments/assets/a2383957-3fc7-491d-8039-80ac5294abe5">
+
+#### Final result waveform
+<img width="1440" alt="Screenshot 2024-08-22 at 1 26 15 AM" src="https://github.com/user-attachments/assets/504bf917-6b82-4927-a18a-c6fcdc73325b">
+
+---
+## Day 5
+---
