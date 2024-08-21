@@ -524,37 +524,49 @@ The below table contains some common logic gates.
 ## BASIC COMBINATIONAL CIRCUITS : 
 ### 1. Inverter
 #### Code
-```$out = ! $in;```
+```
+$out = ! $in;
+```
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 9 59 52 PM" src="https://github.com/user-attachments/assets/71863040-7e07-44dc-88ed-af3bcaee3c35">
 
 ### 2. Arithmetic Operation on Vectors
 #### Code
-```$out[4:0] = $in1[3:0] + $in2[3:0];```
+```
+$out[4:0] = $in1[3:0] + $in2[3:0];
+```
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 00 25 PM" src="https://github.com/user-attachments/assets/96b770e3-e591-4f18-a781-05e77454bfd3">
 
 ### 3. 2-input AND gate
 #### Code
-```$out = $in1 && $in2;```
+```
+$out = $in1 && $in2;
+```
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 01 01 PM" src="https://github.com/user-attachments/assets/9ccdfafc-421c-458f-92db-a902deec6ba7">
 
 ### 4. 2-inoput OR gate
 #### Code
-```$out = $in1 || $in2;```
+```
+$out = $in1 || $in2;
+```
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 01 38 PM" src="https://github.com/user-attachments/assets/01a0e546-6a4c-4fef-8065-1071c71ae7b6">
 
 ### 5. 2-input XOR gate
 #### Code
-```$out = $in1 ^ $in2;```
+```
+$out = $in1 ^ $in2;
+```
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 02 10 PM" src="https://github.com/user-attachments/assets/e0d65059-c583-43b9-b615-7cfe4b4c3936">
 
 ### 6. 2:1 MUX
 #### Code
-```$out[11:0] = $sel ? $in1[11:0] : $in0[11:0];```
+```
+$out[11:0] = $sel ? $in1[11:0] : $in0[11:0];
+```
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 02 36 PM" src="https://github.com/user-attachments/assets/f3527722-2325-4148-a183-ae72a1700b09">
 
