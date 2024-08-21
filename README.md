@@ -509,6 +509,8 @@ spike pk powercalc.o
 ---
 ## LAB SESSION - 6
 ### Digital Logic Design and TL-Verilog with Makerchip : 
---
 #### Logic Gates : 
 * Logic gates are essential elements in digital circuits, carrying out key logical operations on binary input signals. They form the foundation of complex systems, such as processors, memory units, and controllers. Operating on binary signals, where "0" represents a low voltage level and "1" represents a high voltage level, logic gates receive one or more input signals and generate an output signal according to defined logical functions.
+
+The below table contains some common logic gates.
+<img width="857" alt="Screenshot 2024-08-21 at 9 54 54 PM" src="https://github.com/user-attachments/assets/ec55f756-47e6-44ec-8ccc-9ad2c8b1a740">
