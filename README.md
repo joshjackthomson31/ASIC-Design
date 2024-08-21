@@ -724,7 +724,7 @@ $cnt[31:0] = $reset ? 0 : (>>1$cnt + 1);
 #### A basic block diagram of the CPU core is shown below.
 <img width="517" alt="Screenshot 2024-08-21 at 10 52 47 PM" src="https://github.com/user-attachments/assets/4f15ad5a-4055-4829-82df-c5dd2258444b">
 
-### Program Counter
+### 1. Program Counter
 * The Program Counter, also known as the Instruction Pointer, is a component that holds the address of the next instruction to be executed. It typically increments by 4 to fetch the subsequent instruction from memory. If a reset occurs, the Program Counter is reinitialized to zero for the next instruction, and then it resumes operation.
 #### Code
 ```
@@ -733,7 +733,7 @@ $pc[31:0] = >>1$reset ? 0 : ( >>1$pc + 31'h4 );
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 58 38 PM" src="https://github.com/user-attachments/assets/52c97945-be5c-4102-b0ba-ae1173704cbc">
 
-### Adding instruction memory
+### 2. Adding instruction memory
 * The output of the Program Counter (PC) is sent to the instruction memory, which then provides the instruction to be executed.
 * The PC increments by 4 with each valid cycle.
 * This output is used to retrieve an instruction from the instruction memory, which outputs a 32-bit instruction based on the provided address.
@@ -748,7 +748,7 @@ $instr[31:0] = $imem_rd_data[31:0];
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 05 26 PM" src="https://github.com/user-attachments/assets/738ab0a6-a773-4768-a513-9d8ec90e66e4">
 
-### Decoding instruction
+### 3. Decoding instruction
 * The 32-bit fetched instruction must first be decoded to determine the operation to be performed and the source/destination addresses. There are six types of instructions:
 
 - R-type: Register
@@ -781,7 +781,7 @@ $is_u_instr = $instr[6:2] ==? 5'b0x101;
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 06 58 PM" src="https://github.com/user-attachments/assets/69484e57-a88f-4d5b-a8f2-7d76ad610f62">
 
-### Immediate decode logic
+### 4. Immediate decode logic
 <img width="823" alt="Screenshot 2024-08-21 at 11 42 19 PM" src="https://github.com/user-attachments/assets/109f8017-f7dc-4ca3-9242-7d76c1ba1e47">
 
 #### Code
@@ -795,7 +795,7 @@ $imm[31:0] = $is_i_instr ? {{21{$instr[31]}}, $instr[30:20]} :
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 09 31 PM" src="https://github.com/user-attachments/assets/0e9b437e-c364-469f-8cfc-f2c3778c65b7">
 
-### Decode logic for other fields
+### 5. Decode logic for other fields
 #### Code
 ```
          $rs2_valid = $is_r_instr || $is_s_instr || $is_b_instr;
@@ -823,7 +823,7 @@ $imm[31:0] = $is_i_instr ? {{21{$instr[31]}}, $instr[30:20]} :
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 11 51 PM" src="https://github.com/user-attachments/assets/b2d1a70d-ec17-4f13-a68b-41cef3f813c2">
 
-### Decoding individual instructions
+### 6. Decoding individual instructions
 #### Code
 ```
 $dec_bits [10:0] = {$funct7[5], $funct3, $opcode};
@@ -845,7 +845,7 @@ $pc[31:0] = >>1$reset ? 32'b0 :
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 18 36 PM" src="https://github.com/user-attachments/assets/f8fc7f56-2a30-46c1-b363-f2d4d0f7d589">
 
-### Register file Read and Enable
+### 7. Register file Read and Enable
 #### Code
 ```
 $rf_rd_en1 = $rs1_valid;
@@ -858,7 +858,7 @@ $src2_value[31:0] = $rf_rd_data2;
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 26 24 PM" src="https://github.com/user-attachments/assets/105b2686-81f4-4316-9b99-704215c94c6d">
 
-### ALU
+### 8. ALU
 #### Code
 ```
 $result[31:0] = $is_addi ? $src1_value + $imm :
@@ -868,7 +868,7 @@ $result[31:0] = $is_addi ? $src1_value + $imm :
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 27 14 PM" src="https://github.com/user-attachments/assets/f2c70e3f-6d93-4fae-a9ab-3818776c9eec">
 
-### Register file write
+### 9. Register file write
 * Once the ALU completes operations on the values in the registers, these results may need to be written back into the registers.
 * This is done using the register file write.
 * It is important to ensure that no values are written to the destination register if it is x0, as this register is always intended to remain 0.
@@ -881,7 +881,7 @@ $rf_wr_data[31:0] = $result;
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 30 37 PM" src="https://github.com/user-attachments/assets/f7d15043-067b-4632-9975-0752cf3f0e31">
 
-### Branch instructions
+### 10. Branch instructions
 #### Code
 ```
 $taken_branch = $is_beq ? ($src1_value == $src2_value):
@@ -896,7 +896,7 @@ $br_target_pc[31:0] = $pc +$imm;
 #### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 11 30 37 PM" src="https://github.com/user-attachments/assets/fc614e9c-4eb5-4f52-b77b-7e83a81e9066">
 
-### Testbench
+### 11. Testbench
 * In order to check whether the code is correct or not, we can verify using testbench for the 1st five cycles.
 #### Code
 ```
