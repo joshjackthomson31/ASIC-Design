@@ -509,7 +509,7 @@ spike pk powercalc.o
 ---
 ## LAB SESSION - 6
 ### Digital Logic Design and TL-Verilog with Makerchip : 
-#### Logic Gates : 
+### Logic Gates : 
 * Logic gates are essential elements in digital circuits, carrying out key logical operations on binary input signals. They form the foundation of complex systems, such as processors, memory units, and controllers. Operating on binary signals, where "0" represents a low voltage level and "1" represents a high voltage level, logic gates receive one or more input signals and generate an output signal according to defined logical functions.
 
 The below table contains some common logic gates.
@@ -521,19 +521,19 @@ TL - Verilog :
 Makerchip IDE : 
 * Makerchip IDE is a robust platform for digital design, offering an all-in-one environment for coding, simulation, and testing of HDL designs. It supports languages such as TL-Verilog, SystemVerilog, Verilog, and VHDL, providing a visual interface to build and simulate digital systems in real-time. Its intuitive interface and comprehensive features make it suitable for both novice and experienced designers. Makerchip allows you to efficiently prototype, debug, and optimize your digital designs, ensuring they work correctly before proceeding to hardware implementation.
 
-### Basic Combinational Circuits : 
-## 1. Inverter
+## Basic Combinational Circuits : 
+### 1. Inverter
 
-# Code
+### Code
 ```$out = ! $in;```
 
-The generated block diagram and waveforms are shown below.
+###The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 9 59 52 PM" src="https://github.com/user-attachments/assets/71863040-7e07-44dc-88ed-af3bcaee3c35">
 
-## 2. Arithmetic Operation on Vectors
+### 2. Arithmetic Operation on Vectors
 
-# Code
+### Code
 ```$out[4:0] = $in1[3:0] + $in2[3:0];```
 
-# The generated block diagram and waveforms are shown below.
+### The generated block diagram and waveforms are shown below.
 <img width="1440" alt="Screenshot 2024-08-21 at 10 00 25 PM" src="https://github.com/user-attachments/assets/96b770e3-e591-4f18-a781-05e77454bfd3">
