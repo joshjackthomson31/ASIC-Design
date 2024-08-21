@@ -514,3 +514,26 @@ spike pk powercalc.o
 
 The below table contains some common logic gates.
 <img width="857" alt="Screenshot 2024-08-21 at 9 54 54 PM" src="https://github.com/user-attachments/assets/ec55f756-47e6-44ec-8ccc-9ad2c8b1a740">
+
+TL - Verilog : 
+* TL-Verilog is an advanced extension of traditional Verilog, developed by Redwood EDA, aimed at simplifying hardware design and modeling. It streamlines the design process with a more abstract and efficient syntax, while maintaining compatibility with standard Verilog. TL-Verilog enables transaction-level modeling, which simplifies the management of complex microarchitectures by allowing transactions to move through the architecture and interact with components such as pipelines, arbiters, and queues. This approach is particularly effective in minimizing bugs and enhancing the design process when using tools like Makerchip.
+
+Makerchip IDE : 
+* Makerchip IDE is a robust platform for digital design, offering an all-in-one environment for coding, simulation, and testing of HDL designs. It supports languages such as TL-Verilog, SystemVerilog, Verilog, and VHDL, providing a visual interface to build and simulate digital systems in real-time. Its intuitive interface and comprehensive features make it suitable for both novice and experienced designers. Makerchip allows you to efficiently prototype, debug, and optimize your digital designs, ensuring they work correctly before proceeding to hardware implementation.
+
+### Basic Combinational Circuits : 
+## 1. Inverter
+
+# Code
+```$out = ! $in;```
+
+The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 9 59 52 PM" src="https://github.com/user-attachments/assets/71863040-7e07-44dc-88ed-af3bcaee3c35">
+
+## 2. Arithmetic Operation on Vectors
+
+# Code
+```$out[4:0] = $in1[3:0] + $in2[3:0];```
+
+# The generated block diagram and waveforms are shown below.
+<img width="1440" alt="Screenshot 2024-08-21 at 10 00 25 PM" src="https://github.com/user-attachments/assets/96b770e3-e591-4f18-a781-05e77454bfd3">
