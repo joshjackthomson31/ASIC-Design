@@ -1260,4 +1260,4 @@ $src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
 <img width="1440" alt="Screenshot 2024-08-22 at 1 58 28 AM" src="https://github.com/user-attachments/assets/01812007-ae6e-4158-b4ff-f4bc52d2ebee">
 
 #### Final result waveform
-<img width="1440" alt="Screenshot 2024-08-22 at 1 58 39 AM" src="https://github.com/user-attachments/assets/32311cfa-ec84-49a9-a580-3b2a99444363">
+<img width="1440" alt="Screenshot 2024-08-22 at 2 06 31 AM" src="https://github.com/user-attachments/assets/fc84f7d7-f695-459b-95f2-4c351620b606">
