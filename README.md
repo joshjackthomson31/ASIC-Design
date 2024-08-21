@@ -505,3 +505,10 @@ spike pk powercalc.o
 
 ### CONCLUSION
 * We can observe that the output is same when compiled using both GCC and RISC-V GCC compilers. This indicates that the program's logic is platform-independent.
+
+---
+## LAB SESSION - 6
+### Digital Logic Design and TL-Verilog with Makerchip : 
+--
+#### Logic Gates : 
+* Logic gates are essential elements in digital circuits, carrying out key logical operations on binary input signals. They form the foundation of complex systems, such as processors, memory units, and controllers. Operating on binary signals, where "0" represents a low voltage level and "1" represents a high voltage level, logic gates receive one or more input signals and generate an output signal according to defined logical functions.
