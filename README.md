@@ -1261,3 +1261,70 @@ $src2_value[31:0] = $rs2_bypass ? >>1$result[31:0] : $rf_rd_data2[31:0];
 
 #### Final result waveform
 <img width="1440" alt="Screenshot 2024-08-22 at 2 06 31 AM" src="https://github.com/user-attachments/assets/fc84f7d7-f695-459b-95f2-4c351620b606">
+
+---
+## LAB SESSION - 7
+---
+## Comparision of RISC-V Pre-Synthesis Simulation outputs using Iverilog GTKwave and Makerchip
+* The RISC-V processor was developed using TL-Verilog in the Makerchip IDE. To deploy it on an FPGA, it was converted to Verilog using the Sandpiper-SaaS compiler. Pre-synthesis simulations were subsequently carried out using the GTKWave simulator.
+
+### Process of simulation
+1. Execute these commands to configure a development environment for working with simulation and synthesis tools, specifically for tasks related to Verilog and RISC-V.
+```
+$ sudo apt install make python python3 python3-pip git iverilog gtkwave
+$ cd ~
+$ sudo apt-get install python3-venv
+$ python3 -m venv .venv
+$ source ~/.venv/bin/activate
+$ pip3 install pyyaml click sandpiper-saas
+```
+![361258922-a22edab5-6c59-4e98-bac6-bb59c89a5234](https://github.com/user-attachments/assets/2a3e9e62-2330-4d85-8fd0-f63e18a5cb40)
+
+2. To install the necessary packages, execute these commands within a virtual environment:
+```
+$ sudo apt install make python python3 python3-pip git iverilog gtkwave docker.io
+$ sudo chmod 666 /var/run/docker.sock
+$ cd ~
+$ pip3 install pyyaml click sandpiper-saas
+```
+![361259149-c2851530-1ddb-494e-8dda-accb4d7d0df7](https://github.com/user-attachments/assets/20f707c9-174a-410b-9122-30fde9593103)
+
+3. Next, clone the following repository into your home directory, and create a `pre_synth_sim` directory to store the output :
+```
+$ cd ~
+$ git clone https://github.com/manili/VSDBabySoC.git
+$ cd /home/vsduser/VSDBabySoC
+$ make pre_synth_sim
+```
+![361259238-36e4b6d9-fdad-43cb-a7c0-696abeeecad7](https://github.com/user-attachments/assets/73c9f525-ec93-4663-9488-3cafac420033)
+
+4. Replace the `rvmyth.tlv` file in the `VSDBabySoC/src/module` folder with your RISC-V design `.tlv` file from Makerchip that you want to convert to Verilog. Additionally, update the testbench to match your Makerchip code.
+
+5. To obtain the Verilog code from your TLV code, i.e., to convert the `.tlv` definition of RISC-V into a `.v` definition, use the following code.
+```
+$ sandpiper-saas -i ./src/module/rvmyth.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+```
+![361259770-abfa2d5b-9db8-4ddb-954c-6e248e450576](https://github.com/user-attachments/assets/b07721f2-01ab-4206-bf2b-054a792d5eb3)
+
+6. To compile and simulate the RISC-V design, execute the following code.
+```
+$ iverilog -o output/pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module
+```
+
+7. The simulation results (`pre_synth_sim.vcd`) will be saved in the `output/pre_synth_sim` directory.
+```
+$ cd output
+$ ./pre_synth_sim.out
+```
+![361259960-929c392e-aa09-4420-ac4f-6a3c2b04ba8a](https://github.com/user-attachments/assets/8f13877d-04c2-480c-9b91-e19bebc376ca)
+
+8. To open the .vcd simulation file through GTKWave simulation tool :
+```
+$ gtkwave pre_synth_sim.vcd
+```
+
+### Pre-synthesis simulation results
+* The following signals are to be plotted.
+1. clk_jack : This is the clock input to the RISC-V core.
+2. reset : This is the input reset signal to the RISC-V core.
+3. OUT[9:0]: This is the 10-bit output port [9:0] from the RISC-V core. It is sourced from RISC-V register #14.
