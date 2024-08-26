@@ -1334,6 +1334,7 @@ $ gtkwave pre_synth_sim.vcd
 ![image](https://github.com/user-attachments/assets/231b8d9e-85c0-483a-8faa-b8fda5afffd8)
 
 2. reset plot
+![image](https://github.com/user-attachments/assets/91e78f8a-4131-48d5-a8c8-19b72d4e74fb)
 
 3. OUT[9:0] plot
 ![image](https://github.com/user-attachments/assets/5c87303e-5f57-4998-ae29-a7e89815bd0b)
