@@ -1341,7 +1341,10 @@ $ gtkwave pre_synth_sim.vcd
 
 ### Makerchip IDE simulation results for comparison
 1. clk_jack plot
+<img width="1440" alt="360088847-0102f6eb-462c-4634-89a3-86e91bb30b2f" src="https://github.com/user-attachments/assets/755845aa-452b-411a-8d5f-0dbf91ba12ad">
 
 2. reset plot
+<img width="1440" alt="360088915-01812007-ae6e-4158-b4ff-f4bc52d2ebee" src="https://github.com/user-attachments/assets/72c82dd6-831c-4ea2-bbb1-15eb064c424d">
 
 3. OUT[9:0] plot
+<img width="1440" alt="360090757-fc84f7d7-f695-459b-95f2-4c351620b606" src="https://github.com/user-attachments/assets/8ac013d2-4167-4ec4-bdab-11a3f2a9cfce">
