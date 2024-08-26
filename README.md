@@ -1328,3 +1328,19 @@ $ gtkwave pre_synth_sim.vcd
 1. clk_jack : This is the clock input to the RISC-V core.
 2. reset : This is the input reset signal to the RISC-V core.
 3. OUT[9:0]: This is the 10-bit output port [9:0] from the RISC-V core. It is sourced from RISC-V register #14.
+
+### GTKWave simulation waveforms : 
+1. clk_jack plot
+![image](https://github.com/user-attachments/assets/231b8d9e-85c0-483a-8faa-b8fda5afffd8)
+
+2. reset plot
+
+3. OUT[9:0] plot
+![image](https://github.com/user-attachments/assets/5c87303e-5f57-4998-ae29-a7e89815bd0b)
+
+### Makerchip IDE simulation results for comparison
+1. clk_jack plot
+
+2. reset plot
+
+3. OUT[9:0] plot
