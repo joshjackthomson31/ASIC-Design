@@ -1348,3 +1348,12 @@ $ gtkwave pre_synth_sim.vcd
 
 3. OUT[9:0] plot
 <img width="1440" alt="360090757-fc84f7d7-f695-459b-95f2-4c351620b606" src="https://github.com/user-attachments/assets/8ac013d2-4167-4ec4-bdab-11a3f2a9cfce">
+
+---
+## LAB SESSION - 8
+---
+### AIM
+* This task involves integrating and validating the functionality of a custom RISC-V processor (rvmyth) within the BabySoC platform, utilizing a specific set of tools for digital design and simulation.
+* The goal is to generate DAC and PPL waveforms for the RISC-V processor.
+
+### PHASE-LOCKED LOOP (PLL)
