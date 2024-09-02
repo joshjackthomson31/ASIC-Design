@@ -1357,3 +1357,22 @@ $ gtkwave pre_synth_sim.vcd
 * The goal is to generate DAC and PPL waveforms for the RISC-V processor.
 
 ### PHASE-LOCKED LOOP (PLL)
+* A Phase-Locked Loop (PLL) is an electronic control system that produces an output signal with a phase that is synchronized to the phase of an input signal.
+* It is widely utilized in telecommunications, radio, and computing for signal synchronization, frequency stabilization, and clock generation for digital circuits.
+
+### Download and Prepare Project Files
+* All the files BabySoc can be downloaded using the following command.
+```
+git clone https://github.com/manili/VSDBabySoC.git
+```
+
+### Editing the Top-level verilog code
+
+### Simulation Procedure
+* Functional simulation can be performed using the following command.
+```
+cd BabySoC_Simulation
+iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+./pre_synth_sim.out
+gtkwave pre_synth_sim.vcd
+```
