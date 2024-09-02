@@ -1365,8 +1365,10 @@ $ gtkwave pre_synth_sim.vcd
 ```
 git clone https://github.com/manili/VSDBabySoC.git
 ```
+![WhatsApp Image 2024-09-03 at 1 35 56 AM](https://github.com/user-attachments/assets/9b644de2-d9cf-4850-93f3-926e29b90974)
 
 ### Editing the Top-level verilog code
+![WhatsApp Image 2024-09-03 at 1 34 33 AM](https://github.com/user-attachments/assets/011c1096-d3f1-4855-98b8-54f3e07511b9)
 
 ### Simulation Procedure
 * Functional simulation can be performed using the following command.
@@ -1376,3 +1378,14 @@ iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/in
 ./pre_synth_sim.out
 gtkwave pre_synth_sim.vcd
 ```
+![WhatsApp Image 2024-09-03 at 1 33 00 AM](https://github.com/user-attachments/assets/57b3edb0-f847-4fb9-9aec-0e982cab98ba)
+
+### RESULTS
+* Clock waveform named as clk_jack along with PLL clock
+![WhatsApp Image 2024-09-03 at 1 28 45 AM](https://github.com/user-attachments/assets/dd6a1044-61a5-4fde-987a-bb658e6dc928)
+
+* Reset waveform
+  ![WhatsApp Image 2024-09-03 at 1 29 20 AM](https://github.com/user-attachments/assets/7c64f90e-1521-4588-a0b0-f0d2508c10f1)
+
+* Final result waveform
+  ![WhatsApp Image 2024-09-03 at 1 29 58 AM](https://github.com/user-attachments/assets/2f58767a-62a9-425f-b760-8e009fc81f7b)
