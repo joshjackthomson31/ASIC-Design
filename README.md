@@ -2694,3 +2694,214 @@ gtkwave tb_counter_opt.vcd
 
 
 </details>
+
+<details>
+<summary><strong>Day 4:</strong> GLS, blocking vs non-blocking and Synthesis-Simulation mismatch.</summary>
+
+## Introduction to GLS and Synthesis-Simulation mismatch
+
+Gate Level Simulation (GLS) is an important step in verifying digital circuits. It simulates the synthesized netlist, a lower-level representation of the design, using a testbench to check its logical accuracy and timing behavior. By comparing the simulation outputs with expected results, GLS ensures the synthesis process hasn't introduced any errors and that the design meets performance requirements.
+
+Sensitivity lists are key for ensuring correct circuit behavior. An incomplete sensitivity list can result in unintended latches. Blocking and non-blocking assignments in `always` blocks behave differently, and improper use of blocking assignments can inadvertently create latches, leading to mismatches between synthesis and simulation. To prevent this, it's crucial to carefully review the circuit behavior and ensure the sensitivity list and assignments match the intended functionality.
+
+![image](https://github.com/user-attachments/assets/fa59f230-4a0d-4c8e-9353-a01a9209a6d6)
+
+**Example 1:**
+
+Verilog code:
+
+```
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+assign y = sel?i1:i0;
+endmodule
+```
+
+Simulation:
+
+```
+iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+
+./a.out
+
+gtkwave tb_ternary_operator_mux.vcd
+
+```
+![Screenshot from 2024-10-22 03-01-35](https://github.com/user-attachments/assets/7ad36936-16b0-433c-9ce6-9a5d2712af00)
+
+Netlist:
+
+```
+yosys
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog ternary_operator_mux.v
+
+synth -top ternary_operator_mux
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show
+
+write_verilog -noattr ternary_operator_mux_net.v
+
+```
+
+![Screenshot from 2024-10-22 03-02-57](https://github.com/user-attachments/assets/05377ee5-5a1d-489f-b473-9889a8f6f1f8)
+
+![Screenshot from 2024-10-22 03-02-42](https://github.com/user-attachments/assets/5f5748dc-f143-4d13-a8a9-1150654954cf)
+
+![Screenshot from 2024-10-22 03-03-39](https://github.com/user-attachments/assets/11606d89-3c87-441a-8d3c-9926b8dc78b2)
+
+
+GLS:
+
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
+
+./a.out
+
+gtkwave tb_ternary_operator_mux.vcd
+```
+![Screenshot from 2024-10-22 03-04-52](https://github.com/user-attachments/assets/0a5d3723-a1f5-41b3-89e7-a388e5756028)
+
+
+In this case there is no mismatch between the waveforms before and after synthesis
+
+**Example 2:**
+
+Verilog code:
+
+```
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
+
+Simulation:
+
+```
+iverilog bad_mux.v tb_bad_mux.v
+
+./a.out
+
+gtkwave tb_bad_mux.vcd
+```
+
+![Screenshot from 2024-10-22 03-06-01](https://github.com/user-attachments/assets/ae7486ce-3a51-4195-828c-de76eb0898d7)
+
+
+Netlist:
+
+```
+yosys
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog bad_mux.v
+
+synth -top bad_mux
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show
+
+write_verilog -noattr bad_mux_net.v
+
+```
+![Screenshot from 2024-10-22 03-07-01](https://github.com/user-attachments/assets/580b8dc6-43e5-40a1-a691-de94ab34b589)
+
+![Screenshot from 2024-10-22 03-06-49](https://github.com/user-attachments/assets/5957ae59-ffb8-40d6-a361-fa13b74faa71)
+
+![Screenshot from 2024-10-22 03-07-34](https://github.com/user-attachments/assets/019e61f9-8255-40fd-b909-b0f065d9919f)
+
+
+
+GLS:
+
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v
+
+./a.out
+
+gtkwave tb_bad_mux.vcd
+```
+![Screenshot from 2024-10-22 03-09-28](https://github.com/user-attachments/assets/3b9c8918-c592-4230-a510-56f37247e4b0)
+
+
+In this case there is a synthesis and simulation mismatch. While performing synthesis yosys has corrected the sensitivity list error.
+
+**Labs on Synthesis-Simulation mismatch for blocking statements**
+
+Verilog code:
+
+```
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+d = x & c;
+x = a | b;
+end
+endmodule
+```
+
+Simulation:
+
+```
+iverilog blocking_caveat.v tb_blocking_caveat.v
+
+./a.out
+
+gtkwave tb_blocking_caveat.vcd
+```
+![Screenshot from 2024-10-22 03-10-52](https://github.com/user-attachments/assets/8c3967e9-6c71-4cf8-84fa-f4c9e8d4efd8)
+
+
+Netlist:
+
+```
+yosys
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog blocking_caveat.v
+
+synth -top blocking_caveat
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show
+
+write_verilog -noattr blocking_caveat_net.v
+```
+![Screenshot from 2024-10-22 03-11-49](https://github.com/user-attachments/assets/aa31f4f9-82e7-44b1-b63c-48da2a1ef775)
+
+![Screenshot from 2024-10-22 03-11-37](https://github.com/user-attachments/assets/3df7f963-8320-4498-ab35-0e8282abbe29)
+
+![Screenshot from 2024-10-22 03-13-06](https://github.com/user-attachments/assets/ca1afb7c-bac4-4bea-9ff3-b32b3bb3263f)
+
+
+GLS:
+
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v
+
+./a.out
+
+gtkwave tb_blocking_caveat.vcd
+```
+![Screenshot from 2024-10-22 03-14-06](https://github.com/user-attachments/assets/19fb879b-9ae6-4b2c-aeb9-0d26ff5d4390)
+
+
+In this case there is a synthesis and simulation mismatch. While performing synthesis yosys has corrected the latch error.
+
+</details>
+
+</details>
