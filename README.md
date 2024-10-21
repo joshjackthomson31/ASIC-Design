@@ -1562,6 +1562,9 @@ write_verilog -noattr good_mux_netlist.v
 
 </details>
 
+
+
+
 <details>  
 <summary><strong>Day 2:</strong>Timing libs, hierarchical vs flat synthesis and efficient flop coding styles.</summary>
 
@@ -1575,9 +1578,8 @@ cd ASIC/sky130RTLDesignAndSynthesisWorkshop/lib/
 vim sky130_fd_sc_hd__tt_025C_1v80.lib
 
 ```
-![20](https://github.com/user-attachments/assets/b0b8f7e7-d713-4bee-9f9f-a076089a61db)
+![Screenshot from 2024-10-22 00-13-47](https://github.com/user-attachments/assets/e30897a0-0b44-4845-af9f-03913def4804)
 
-![21](https://github.com/user-attachments/assets/c28eee18-7a6a-442e-ac90-271ff76c94e2)
 
 
 ##  Cell library
@@ -1587,9 +1589,12 @@ vim sky130_fd_sc_hd__tt_025C_1v80.lib
 
 We can also find various flavours of AND gate
 
-![22](https://github.com/user-attachments/assets/1c5784b6-d129-4b74-97cd-30a70c84b9fb)
-![23](https://github.com/user-attachments/assets/619718fb-8e3b-4aeb-af6b-47d00f6f0f40)
-![24](https://github.com/user-attachments/assets/1d6bc766-a9aa-47b4-9ce6-d2c201e5ce80)
+![Screenshot from 2024-10-22 00-15-50](https://github.com/user-attachments/assets/661954ad-5196-4272-8696-7da96dc68036)
+
+![Screenshot from 2024-10-22 00-16-53](https://github.com/user-attachments/assets/85602a21-8eaf-4d21-ad35-3ff658cc49b3)
+
+![Screenshot from 2024-10-22 00-17-13](https://github.com/user-attachments/assets/442f9542-681c-46f5-be79-e158e97add40)
+
 
 We can observe that:
 * and2_0 -- takes the least area, more delay and low power.
@@ -1640,25 +1645,29 @@ write_verilog -noattr multiple_modules_hier.v
 ```
 When you do synth -top 'topmodulename' in yosys, it does an hierarchical synthesis. ie the different hierarchies between modules are preserved.
 
-![25](https://github.com/user-attachments/assets/10c32b12-608c-4aa2-b3a4-0a4c91df3f7c)
+![Screenshot from 2024-10-22 00-19-41](https://github.com/user-attachments/assets/02e78d9e-aab8-4f19-9a32-4a06d57898df)
+
 
 **Staistics of Multiple Modules**
 
-![26](https://github.com/user-attachments/assets/213f69a0-42c5-4806-bcb8-9ea0ef476e31)
+![Screenshot from 2024-10-22 00-26-31](https://github.com/user-attachments/assets/dc544916-7657-4cf5-b7ab-428329a1b2c8)
+
 
 **Realization of the Logic**
+![Screenshot from 2024-10-22 00-27-10](https://github.com/user-attachments/assets/fba19846-50a8-4801-8565-506d80457fb6)
 
-![27](https://github.com/user-attachments/assets/1977d040-8838-4377-a659-f75f12cc8a9e)
 
 
 **Map to the standard library**
 
-![28](https://github.com/user-attachments/assets/517adf42-36ce-41d2-bc7c-ced00cf540c5)
+![Screenshot from 2024-10-22 00-26-52](https://github.com/user-attachments/assets/18eaae15-cf69-464b-8b2d-94085d8bf650)
+
 
 
 **Netlist file**
 
-![29](https://github.com/user-attachments/assets/afb77c7e-1275-4bdb-bcc2-7a8aa1f3acf6)
+![Screenshot from 2024-10-22 00-42-29](https://github.com/user-attachments/assets/b573206b-5e66-442d-aa1d-7624c1698a80)
+
 
 
 
@@ -1683,16 +1692,18 @@ write_verilog -noattr multiple_modules_flat.v
 
 !vim multiple_modules_flat.v
 ```
-![210](https://github.com/user-attachments/assets/42b2b8cc-8616-41fc-b79d-9674d6182b61)
+![Screenshot from 2024-10-22 00-44-59](https://github.com/user-attachments/assets/d7395b7b-65e7-454a-909d-bc6bbc1b3d61)
+
 
 **Realization of the Logic**
 
-![211](https://github.com/user-attachments/assets/a609c2b8-4cdc-4ebc-a0ba-a780aa658123)
+![Screenshot from 2024-10-22 00-45-42](https://github.com/user-attachments/assets/dd416b57-9833-4123-aae7-ef9224b780f7)
 
  
 **Netlist file**
 
-![212](https://github.com/user-attachments/assets/678bf842-c912-4818-8b94-8de47f26fae6)
+![Screenshot from 2024-10-22 00-46-16](https://github.com/user-attachments/assets/73502948-dbcd-4937-aced-f42e3150692c)
+
 
 
 ### Sub Module Level Synthesis
@@ -1712,12 +1723,15 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 show
 ```
+![Screenshot from 2024-10-22 00-48-17](https://github.com/user-attachments/assets/e8b4f026-2c49-425d-ae27-c94c6c65a09b)
 
-![213](https://github.com/user-attachments/assets/0a46f5fe-d9f0-4bef-a7d0-72f5192a9739)
+
 
 **Realization of the Logic**
 
-![214](https://github.com/user-attachments/assets/929837ca-475b-4fb3-be35-1a406aa5700e)
+![Screenshot from 2024-10-22 00-48-30](https://github.com/user-attachments/assets/24cc93ef-8771-4056-b563-3ee3cc46c377)
+
+
 
 
 ## Flop coding styles and optimization
@@ -1781,19 +1795,21 @@ ls
 gtkwave tb_dff_asyncres.vcd
 ```
 
-![215](https://github.com/user-attachments/assets/36a5bc0c-1680-4ddf-ab4f-9f5bd95a8ab6)
 
 **GTK WAVE OF ASYNCHRONOUS RESET**
 
-![216](https://github.com/user-attachments/assets/334cf593-e309-4d9b-b327-d5718cd02ee7)
+![Screenshot from 2024-10-22 00-52-37](https://github.com/user-attachments/assets/2839b0d2-c942-4782-b746-f629a637581c)
+
 
 **GTK WAVE OF ASYNCHRONOUS SET**
 
-![217](https://github.com/user-attachments/assets/be12e8a3-a0fe-497d-92ae-9ee085ba3433)
+![Screenshot from 2024-10-22 00-52-42](https://github.com/user-attachments/assets/d7982dbc-01de-4f1a-8c2a-5dc0327574b9)
+
 
 **GTK WAVE OF SYNCHRONOUS RESET**
 
-![218](https://github.com/user-attachments/assets/747dbaf4-61a0-4b9c-95bc-5cd1fbb61500)
+![Screenshot from 2024-10-22 01-05-58](https://github.com/user-attachments/assets/14f23f78-a8cf-4bd3-a5f5-a32f073934c5)
+
 
 #### FLIP FLOP SYNTHESIS
 
@@ -1815,15 +1831,13 @@ show
 ```
 **Statistics of D FLipflop with Asynchronous Reset**
 
-![219](https://github.com/user-attachments/assets/d1eb363e-908a-4f66-9adc-76ccc0d30f76)
+![Screenshot from 2024-10-22 01-10-55](https://github.com/user-attachments/assets/d6ca6259-9772-4b6f-9d08-14ef91a6d04a)
 
-![220](https://github.com/user-attachments/assets/7fdc1826-fd15-46c4-a7c2-8648275d7144)
+![Screenshot from 2024-10-22 01-11-41](https://github.com/user-attachments/assets/488ea1eb-5749-4d8d-9c3f-a08ad6f0a6d5)
 
 
 **Realization of Logic**
-
-![221](https://github.com/user-attachments/assets/eec91e5d-9634-4f87-8111-5e878760ecf4)
-
+![Screenshot from 2024-10-22 01-11-53](https://github.com/user-attachments/assets/c377c3d0-6a53-4b4b-8b9a-57b60e797334)
 
 
 **Note:**  We wrote a flop with active high reset but the flop is having acting low reset so the tool inserted the inverter so (!(!(reset))) is just reset so at the end we got a flop with active high reset
@@ -1831,26 +1845,27 @@ show
 **Statistics of D FLipflop with Asynchronous set**\
 Follow the same steps as given above just the file name changes to dff_async_set.v
 
-![222](https://github.com/user-attachments/assets/4e40503f-28f9-4c14-ab11-08a2de0946f1)
+![Screenshot from 2024-10-22 01-15-55](https://github.com/user-attachments/assets/8ede4e67-1148-4588-b2ab-a5244e864807)
 
-![223](https://github.com/user-attachments/assets/d4910286-fb0e-4e89-991b-d96d0e8b8653)
 
 **Realization of Logic**
 
-![224](https://github.com/user-attachments/assets/90253526-d4c0-472d-a5af-fd6c52c258dc)
+![Screenshot from 2024-10-22 01-16-18](https://github.com/user-attachments/assets/97c61ce4-00cf-4c48-b07c-f2d4e73d12b1)
+
 
 **Note:**  We wrote a flop with active high set but the flop is having acting low set so the tool inserted the inverter so (!(!(set))) is just set so at the end we got a flop with active high set
 
 **Statistics of D FLipflop with Synchronous Reset**
 
-![225](https://github.com/user-attachments/assets/2359180b-0025-4e05-88fb-a62283acf525)
+![Screenshot from 2024-10-22 01-17-13](https://github.com/user-attachments/assets/097fc8d1-2157-4c57-ab9f-f1d24904eb5c)
 
-![226](https://github.com/user-attachments/assets/b1719320-bc77-4798-964f-3250cabe02c9)
+
+![Screenshot from 2024-10-22 01-17-26](https://github.com/user-attachments/assets/c5fd8509-3673-48e4-af72-1fc1230194cd)
 
 
 **Realization of Logic**
 
-![227](https://github.com/user-attachments/assets/b4a086a2-e521-437c-a8df-867890ba7ee7)
+![Screenshot from 2024-10-22 01-17-35](https://github.com/user-attachments/assets/cc74779a-bdb1-4acf-85a2-ded145cdf50c)
 
 
 
@@ -1877,13 +1892,13 @@ Run the below code to view the netlist:
 ```
 yosys
 
-read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 read_verilog mult_2.v
 
-synth -top mult2
+synth -top mul2
 
-abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 show 
 
@@ -1891,18 +1906,18 @@ write_verilog -noattr mult_2_net.v
 
 !vim mult_2_net.v
 ```
-**Statestics**
+**Statistics**
 
-![228](https://github.com/user-attachments/assets/3f367c55-e759-4b11-8650-2a8b346811f8)
+![Screenshot from 2024-10-22 01-20-58](https://github.com/user-attachments/assets/687bbc17-d6bb-4a29-a682-7204e7b271af)
 
 
 **Realization of Logic**
 
-![229](https://github.com/user-attachments/assets/3092e0ce-3b9d-4085-bb8b-c07267f7492f)
+![Screenshot from 2024-10-22 01-21-34](https://github.com/user-attachments/assets/e7afd25f-a96d-49ba-8ade-6457838143d3)
 
 **Netlist**
 
-![230](https://github.com/user-attachments/assets/26ea571c-6b14-4dd7-8fff-e612712f93e8)
+![Screenshot from 2024-10-22 01-22-22](https://github.com/user-attachments/assets/6939a484-4129-4019-8b25-9ea211015c39)
 
 
 ### Example 2: mult_8.v
@@ -1915,7 +1930,7 @@ module mult8 (input [2:0] a , output [5:0] y);
 endmodule
 ```
 
-**logic behaviour** 
+**logic behaviour**
 
 ![Screenshot from 2024-10-21 15-43-38](https://github.com/user-attachments/assets/a66a1c34-977d-446c-a462-fae3073a1425)
 
@@ -1941,18 +1956,23 @@ write_verilog -noattr mult_8_net.v
 
 ```
 
-**Statestics**
+**Statestics** 
 
-![231](https://github.com/user-attachments/assets/04a1c856-0b9b-497f-94f2-7384a0a77071)
+![Screenshot from 2024-10-22 01-23-44](https://github.com/user-attachments/assets/5a8c3707-9a4d-426e-91e2-88f754a26b63)
+
 
 
 **Realization of Logic**
 
-![232](https://github.com/user-attachments/assets/d520d717-8f5f-49c4-8788-d5a0a92e0781)
+![Screenshot from 2024-10-22 01-24-20](https://github.com/user-attachments/assets/1800ce2e-8318-4dc1-8826-c94fa278c57f)
+
 
 
 **Netlist**
  
-![233](https://github.com/user-attachments/assets/a11b3e1b-df78-4dde-87bd-c4a1104741f0)
+![Screenshot from 2024-10-22 01-25-13](https://github.com/user-attachments/assets/07e263ab-efe4-4973-8392-bc87848464d0)
 
 
+
+
+</details>
