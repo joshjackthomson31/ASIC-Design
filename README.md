@@ -1915,7 +1915,7 @@ module mult8 (input [2:0] a , output [5:0] y);
 endmodule
 ```
 
-**logic behaviour**
+**logic behaviour** 
 
 ![Screenshot from 2024-10-21 15-43-38](https://github.com/user-attachments/assets/a66a1c34-977d-446c-a462-fae3073a1425)
 
