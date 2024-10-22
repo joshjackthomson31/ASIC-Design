@@ -2660,9 +2660,9 @@ yosys
 
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-read_verilog counter_opt.v
+read_verilog counter_opt2.v
 
-synth -top counter_opt
+synth -top counter_opt2
 
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
@@ -2670,7 +2670,7 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 show
 
-write_verilog -noattr counter_opt_net.v
+write_verilog -noattr counter_opt_net2.v
 
 ```
 ![image](https://github.com/user-attachments/assets/6b0daf62-32e0-486e-adfd-71fd8c8edac6)
@@ -2681,11 +2681,11 @@ write_verilog -noattr counter_opt_net.v
 GTKWave Output:
 
 ```
-iverilog counter_opt.v tb_counter_opt.v
+iverilog counter_opt2.v tb_counter_opt2.v
 
 ./a.out
 
-gtkwave tb_counter_opt.vcd
+gtkwave tb_counter_opt2.vcd
 ```
 
 ![Screenshot from 2024-10-21 18-10-22](https://github.com/user-attachments/assets/ae5620f9-2bbb-4a74-bddb-1da1d42d427c)
