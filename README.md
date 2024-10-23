@@ -2969,6 +2969,15 @@ gtkwave dump.vcd
 ![Screenshot from 2024-10-24 01-41-20](https://github.com/user-attachments/assets/2ff43905-31ac-493b-a523-f454776470df)
 
 
+### Realization: 
+
+![PHOTO-2024-10-24-01-55-37](https://github.com/user-attachments/assets/f400bd2e-0285-4dcf-991a-46662df07a2b)
+
+![PHOTO-2024-10-24-01-56-14](https://github.com/user-attachments/assets/9cb37544-d272-42b8-9006-3f3e86f2fc13)
+
+![PHOTO-2024-10-24-02-46-15](https://github.com/user-attachments/assets/2319d29c-ec92-4d2b-8c91-677e2ced564f)
+
+
 
 ## RTL Simulations
 
