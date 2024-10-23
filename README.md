@@ -2962,7 +2962,7 @@ iverilog ../../my_lib/verilog_model/primitives.v ../../my_lib/verilog_model/sky1
 gtkwave dump.vcd
 ```
 
-![Screenshot from 2024-10-24 01-39-54](https://github.com/user-attachments/assets/f42b264d-951e-42c1-a4e8-af217af6160f)
+![image](https://github.com/user-attachments/assets/4a7ef4ee-91ec-4226-bbf7-604cd4861e18)
 
 ![Screenshot from 2024-10-24 01-40-13](https://github.com/user-attachments/assets/27e862eb-a7bc-49d4-bd6d-ee92ff1960c4)
 
