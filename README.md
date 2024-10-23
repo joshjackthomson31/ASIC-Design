@@ -2915,12 +2915,12 @@ LAB SESSION - 10
 
 ### Steps 
 
-Copy the ```src``` folder from your ```BabySoC``` folder to your ```sky130RTLDesignAndSynthesisWorkshop``` folder in your ```VLSI``` folder from previous lab.
+* Copy the ```src``` folder from your ```BabySoC``` folder to your ```sky130RTLDesignAndSynthesisWorkshop``` folder in your ```VLSI``` folder from previous lab.
 
 Now go the following Directory: 
 
 ```
-cd /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
+cd /home/jack/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
 ```
 
 ### Synthesis: 
@@ -2928,7 +2928,7 @@ cd /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
 ```
 yosys       
 
-read_liberty -lib /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -lib /home/jack/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 read_verilog clk_gate.v
 
@@ -2936,7 +2936,7 @@ read_verilog rvmyth.v
 
 synth -top rvmyth
 
-abc -liberty /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/jack/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 write_verilog -noattr rvmyth_net.v
 
@@ -2945,11 +2945,11 @@ write_verilog -noattr rvmyth_net.v
 exit
 ```
 
-![3](https://github.com/user-attachments/assets/5c547ed5-1f14-476c-9bce-b225154366a5)
+![Screenshot from 2024-10-24 01-32-08](https://github.com/user-attachments/assets/bddefbb4-7bce-4d48-8d88-9707260eae3f)
 
-![4](https://github.com/user-attachments/assets/00f86b76-1b8c-4390-8772-d29075df22d3)
+![Screenshot from 2024-10-24 01-33-13](https://github.com/user-attachments/assets/57786619-5642-4168-93b8-01913d486d89)
 
-![5](https://github.com/user-attachments/assets/9672c299-f4f4-4f49-bb28-f6d942a41052)
+![Screenshot from 2024-10-24 01-37-19](https://github.com/user-attachments/assets/76340291-814b-43ad-a138-b33479703ad9)
 
 
 
@@ -2962,9 +2962,12 @@ iverilog ../../my_lib/verilog_model/primitives.v ../../my_lib/verilog_model/sky1
 gtkwave dump.vcd
 ```
 
-![6](https://github.com/user-attachments/assets/6676e3f8-0b2f-4b23-bde5-eef20432d7fc)
+![Screenshot from 2024-10-24 01-39-54](https://github.com/user-attachments/assets/f42b264d-951e-42c1-a4e8-af217af6160f)
 
-![7](https://github.com/user-attachments/assets/ce4aa0e4-9542-46f8-a088-ab1f427e88b1)
+![Screenshot from 2024-10-24 01-40-13](https://github.com/user-attachments/assets/27e862eb-a7bc-49d4-bd6d-ee92ff1960c4)
+
+![Screenshot from 2024-10-24 01-41-20](https://github.com/user-attachments/assets/2ff43905-31ac-493b-a523-f454776470df)
+
 
 
 ## RTL Simulations
@@ -2980,7 +2983,8 @@ iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/in
 gtkwave pre_synth_sim.vcd
 
 ```
+![Screenshot from 2024-10-24 01-48-25](https://github.com/user-attachments/assets/07b9f63f-9e73-4ad6-9520-9f0eca7277e3)
 
-![1](https://github.com/user-attachments/assets/8996b6f2-64cb-45b2-a534-d85e285d70b2)
+![Screenshot from 2024-10-24 01-25-43](https://github.com/user-attachments/assets/a3e23876-147d-4dc9-93f4-71df7d96f245)
 
-![2](https://github.com/user-attachments/assets/6219ef9f-c391-4220-854c-403c88202790)
+![Screenshot from 2024-10-24 01-26-11](https://github.com/user-attachments/assets/d4e8d840-abe9-4f4f-a270-54de11c0423d)
