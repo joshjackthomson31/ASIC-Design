@@ -3056,14 +3056,14 @@ read_sdc ./sdc/vsdbabysoc_synthesis.sdc
 report_checks -path_delay min_max -format full_clock_expanded -digits 4
 ```
 
-![image](https://github.com/user-attachments/assets/ba17e067-d19c-40ee-9c1f-40c6d3b909a7)
+![Screenshot from 2024-10-28 23-48-14](https://github.com/user-attachments/assets/d9caae7f-f07e-4917-9cb4-8cecbb9f0222)
 
 Setup Time:
 
-![l2](https://github.com/user-attachments/assets/cb9ca529-063a-4e94-aa0b-6170afa51bc5)
+![image(1)](https://github.com/user-attachments/assets/c98643f1-0bfd-4872-86c7-67d3f258ecd0)
 
 
 Hold Time:
 
-![l1](https://github.com/user-attachments/assets/5d2d5ea0-470a-4b7f-bc99-79c7d7cb9ca7)
+![image](https://github.com/user-attachments/assets/49a57c30-fdb4-49ec-81e0-d364b02b3c47)
 
