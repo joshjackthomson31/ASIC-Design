@@ -3011,7 +3011,7 @@ A reg-to-reg path links two sequential elements, like flip-flops, in a digital c
 ### Clk-to-Reg Path
 A clk-to-reg path links a clock signal to a register, ensuring that the register functions correctly in response to clock edges. This path assesses the delay from the clock's source to the register, factoring in delays through buffers or routing. During setup analysis, it determines the timing for when data must arrive at the register in relation to the clock edge. Clock delay influences the timing of data capture, and both setup and hold timing are examined, particularly in the context of clock jitter or variations. When registers operate in different clock domains, additional considerations are required to maintain reliable synchronization.
 
-### STA for synthesized Risc-V core using time period of 10.65 ns.
+### STA for synthesized Risc-V core using time period of 11.8 ns.
 To verify that our synthesized RISC-V Core module meets its timing constraints, we will generate setup and hold timing reports. These reports will confirm that data signals propagate correctly throughout the core. Run the following commands:
 ```
 set PERIOD 11.8
