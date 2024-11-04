@@ -3110,12 +3110,11 @@ report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -dig
 }
 
 ```
-
-![Screenshot from 2024-10-31 11-18-14](https://github.com/user-attachments/assets/050dc5f8-e7f7-486e-8d74-84d10fa1ad1c)
+![Screenshot from 2024-11-05 02-00-05](https://github.com/user-attachments/assets/798301a7-72d6-4a21-b520-df3f4ade8fe7)
 
 constraints file:
 
-![Screenshot from 2024-10-31 11-28-12](https://github.com/user-attachments/assets/6e71de93-75f5-415d-af83-41fe91d04b37)
+![Screenshot from 2024-11-05 02-02-24](https://github.com/user-attachments/assets/21984a0a-fabf-4d0a-ae8c-49a838dcfd57)
 
 
 Now, run the following commands:
@@ -3127,8 +3126,7 @@ sta
 
 source sta_across_pvt.tcl
 ```
-
-![Screenshot from 2024-10-31 11-21-20](https://github.com/user-attachments/assets/2a8e5d8e-b29f-4edb-850a-035ab4ea04f3)
+![Screenshot from 2024-11-05 02-03-30](https://github.com/user-attachments/assets/848f27c8-23a2-479c-8810-191f3915a221)
 
 table:
 
