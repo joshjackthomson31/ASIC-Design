@@ -3164,7 +3164,7 @@ Graphs:
 
 **sky130_fd_sc_hd__ff_n40C_1v56.lib:**
 
-![Screenshot from 2024-11-03 11-20-18](https://github.com/user-attachments/assets/b1b8ad30-792e-4585-ab69-88c97739bd5b)
+![Uploading Screenshot from 2024-11-05 01-32-20.png…]()
 
 ![Screenshot from 2024-11-05 01-32-28](https://github.com/user-attachments/assets/5ac5a8bf-9c5c-4282-bc62-e12d3fc5b8d1)
 
