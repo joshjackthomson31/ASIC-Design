@@ -3528,3 +3528,157 @@ Flop ratio = Number of D Flip flops = 1613  = 0.1084
 
 </details>
 
+
+<details>
+<summary><strong>Day-2:</strong>  Good floorplan vs bad floorplan and introduction to library cells </summary>
+
+## Good floorplan vs bad floorplan and introduction to library cells 
+ 
+### **Utilization Factor and Aspect Ratio**
+In IC floor planning, the utilization factor and aspect ratio are key parameters. The utilization factor is defined as the area occupied by the netlist divided by the total core area. Although a utilization factor of 1 (100%) is ideal, practical designs aim for a factor of 0.5 to 0.6 to provide room for buffer zones, routing channels, and adjustments. The aspect ratio, calculated as height divided by width, determines the shape of the chip. An aspect ratio of 1 indicates a square, while other values create a rectangular layout, with the specific ratio chosen based on functional, packaging, and manufacturing requirements.
+
+```
+Utilization Factor =  Area occupied by netlist
+                     __________________________
+                         Total area of core
+                         
+
+Aspect Ratio =  Height
+               ________
+                Width
+```
+
+### **Pre-placed Cells**
+Pre-placed cells are key functional blocks—like memory, custom processors, and analog circuits—that are placed manually in fixed positions. These blocks are crucial for performance and are kept fixed during placement and routing to maintain functionality and layout integrity.
+
+### **Decoupling Capacitors**
+Decoupling capacitors stabilize power supply voltages near logic circuits during transient events. Acting as local energy reserves, they reduce voltage fluctuations, crosstalk, and EMI, ensuring reliable power delivery to sensitive circuits.
+
+### **Power Planning**
+Effective power planning involves creating a power and ground mesh to evenly distribute VDD and VSS across the chip. This arrangement stabilizes power delivery, reduces voltage drops, and enhances efficiency. Multiple power and ground points further support power needs and reduce the risks of instability.
+
+### **Pin Placement**
+Strategic pin placement, or I/O planning, is essential for functionality and reliability. Proper pin assignments minimize signal degradation, manage heat dissipation, and support thermal stability. Placing power and ground pins strategically enhances both signal strength and manufacturability.
+
+### **Floorplanning with OpenLANE**
+To initiate floorplanning in OpenLANE, execute these commands:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+```
+
+```
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+run_synthesis
+run_floorplan
+```
+
+![image](https://github.com/user-attachments/assets/c08cb110-7097-4ece-a642-14fc89c58e04)
+
+Then, in a new terminal, access the floorplan file as follows:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan
+gedit picorv32a.floorplan.def
+```
+![image](https://github.com/user-attachments/assets/5ac98663-4c30-4d7e-b55c-a65c2ffdca7f)
+
+According to the floorplan definitions:
+
+- 1000 Unit Distance = 1 Micron
+- Die width in unit distance = 660685−0 = 660685  
+- Die height in unit distance = 671405−0 = 671405  
+- Width in microns = 660685 / 1000 = 660.685 Microns  
+- Height in microns = 671405 / 1000 = 671.405 Microns  
+- Die area in microns² = 660.685 × 671.405 = 443587.212425 Microns²  
+
+To view the floorplan in Magic:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan/
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+![image](https://github.com/user-attachments/assets/2d700e27-f1ac-4f2e-90f5-cf592982fe16)
+
+### **Decap and Tap Cells**
+
+Decap cells and tap cells are placed to manage power delivery and maintain electrical connectivity across the chip.
+
+![image](https://github.com/user-attachments/assets/f6239fd2-b0ab-47f8-81fd-cffdb6ae5379)
+
+### **Unplaced Standard Cells at Origin**
+
+![image](https://github.com/user-attachments/assets/f7d31499-ce69-43ed-952f-77375da61ef2)
+
+```
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+run_synthesis
+run_floorplan
+run_placement
+```
+
+![image](https://github.com/user-attachments/assets/a9ddcbc0-e2f6-4064-90a4-65e5db5508ea)
+View the placement in Magic with:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-56/results/placement/
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+
+![image](https://github.com/user-attachments/assets/c0379841-001f-4ae2-b46a-e8b37bae8840)
+
+![image](https://github.com/user-attachments/assets/de71d3cd-cdd4-4b9f-a776-2bd34120147b)
+
+### **Cell Design and Characterization Flow**
+The library provides essential cell information, including various sizes, functionalities, and threshold voltages. A typical design flow includes:
+
+- Inputs: Process Design Kits (PDKs) for DRC & LVS, SPICE models, and library/user-defined specs.
+- Steps: Circuit design, layout design (using techniques like Euler’s path and stick diagrams), parasitic extraction, and characterization (timing, noise, power).
+- Outputs: CDL, LEF, GDSII, extracted SPICE netlist (.cir), and timing/noise/power .lib files.
+
+### **Standard Cell Characterization Flow**
+Standard cell characterization includes:
+
+1. Reading models and tech files
+2. Loading the extracted SPICE netlist
+3. Recognizing cell behavior
+4. Reading subcircuits
+5. Applying power sources
+6. Stimulating characterization setup
+7. Setting output capacitance loads
+8. Running simulation commands
+
+These steps are processed by the GUNA software to produce timing, noise, and power models.
+
+### **Timing Parameters**
+
+| Timing Definition     | Value       |
+|-----------------------|-------------|
+| slew_low_rise_thr     | 20%         |
+| slew_high_rise_thr    | 80%         |
+| slew_low_fall_thr     | 20%         |
+| slew_high_fall_thr    | 80%         |
+| in_rise_thr           | 50%         |
+| in_fall_thr           | 50%         |
+| out_rise_thr          | 50%         |
+| out_fall_thr          | 50%         |
+
+**Propagation Delay**: Time for an input change to reach 50% of its final value and affect the output similarly.
+
+```
+rise delay =  time(out_fall_thr) - time(in_rise_thr)
+```
+
+**Transition Time**: Time taken for signal transitions between 10% to 90% or 20% to 80% of signal levels.
+
+```
+Fall transition time: time(slew_high_fall_thr) - time(slew_low_fall_thr)
+Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
+```
+
+</details>
