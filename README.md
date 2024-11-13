@@ -3683,20 +3683,6 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 
 </details>
 
-![image](https://github.com/user-attachments/assets/346594e4-85f1-463f-be89-71f4db1af253)
-![image](https://github.com/user-attachments/assets/7d28c957-c390-4051-bb17-9f23c8293706)
-![image](https://github.com/user-attachments/assets/dcc97b9c-043f-4525-8883-5eb040dd34c3)
-![image](https://github.com/user-attachments/assets/5d1ce8e3-667b-4606-9587-3cfbbb78d57b)
-
-![image](https://github.com/user-attachments/assets/09756933-662b-4c38-9e3d-d5bb1ae55c3e)
-![image](https://github.com/user-attachments/assets/353a0d80-f04d-47a1-8e09-846caf93f610)
-![image](https://github.com/user-attachments/assets/7dbfaa0f-8ea2-4b12-b45e-216c99d79132)
-![image](https://github.com/user-attachments/assets/14814166-31fe-48c9-9c94-b36598fcf046)
-![image](https://github.com/user-attachments/assets/f2d7cf46-e1ff-4e5e-a671-12a12169160b)
-![image](https://github.com/user-attachments/assets/863be098-90e4-4b40-a0be-b64f9962912a)
-![image](https://github.com/user-attachments/assets/dcedaca1-1e33-4bb0-83f7-0f8b40ead1d5)
-![image](https://github.com/user-attachments/assets/5e4c9001-0306-403c-9193-1740cadaae5d)
-![image](https://github.com/user-attachments/assets/98db5761-969a-48af-888d-7a92374adee9)
 
 <details>
 <summary><strong>Day-3:</strong> Design library cell using Magic Layout and ngspice characterization </summary>
@@ -3805,7 +3791,6 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 ![image](https://github.com/user-attachments/assets/dcc97b9c-043f-4525-8883-5eb040dd34c3)
 ![image](https://github.com/user-attachments/assets/5d1ce8e3-667b-4606-9587-3cfbbb78d57b)
 
-![image](https://github.com/user-attachments/assets/09756933-662b-4c38-9e3d-d5bb1ae55c3e)
 
 #### SPICE Extraction with Magic
 
@@ -3817,13 +3802,12 @@ ext2spice cthresh 0 rthresh 0
 ext2spice 
 ```
 
-![Screenshot from 2024-11-13 00-06-58](https://github.com/user-attachments/assets/da8b3fa8-5e39-480e-a472-58a994479b1a)
+![image](https://github.com/user-attachments/assets/09756933-662b-4c38-9e3d-d5bb1ae55c3e)
 
 #### Modifying SPICE File for Transient Analysis
 
-![Screenshot from 2024-11-13 00-07-35](https://github.com/user-attachments/assets/caa04964-e21d-49b0-9f7b-4c76b94fda3c)
-
-![Screenshot from 2024-11-13 00-07-42](https://github.com/user-attachments/assets/0e09dbd7-2872-48c8-981a-b9ab25284ab6)
+![image](https://github.com/user-attachments/assets/353a0d80-f04d-47a1-8e09-846caf93f610)
+![image](https://github.com/user-attachments/assets/7dbfaa0f-8ea2-4b12-b45e-216c99d79132)
 
 Edit `sky130_inv.spice`:
 ```
@@ -3854,10 +3838,8 @@ To simulate:
 ngspice sky130_inv.spice 
 plot y vs time a 
 ```
-![Screenshot from 2024-11-13 00-12-43](https://github.com/user-attachments/assets/86b19c94-3ce9-4e95-8aa3-6833c976202e)
-
-![Screenshot from 2024-11-13 00-13-12](https://github.com/user-attachments/assets/defbf5aa-4975-4f56-bcf1-af4b032145fd)
-
+![image](https://github.com/user-attachments/assets/14814166-31fe-48c9-9c94-b36598fcf046)
+![image](https://github.com/user-attachments/assets/f2d7cf46-e1ff-4e5e-a671-12a12169160b)
 
 #### Characterizing Slew Rate and Propagation Delay
 
@@ -3886,9 +3868,8 @@ gvim .magicrc
 magic -d XR & 
 ```
 
-![Screenshot from 2024-11-13 00-18-20](https://github.com/user-attachments/assets/421d67f3-8c6e-46b8-9af5-df1339da4c91)
-
-![Screenshot from 2024-11-13 00-21-58](https://github.com/user-attachments/assets/dc4f6182-faba-4842-a6cb-b1c8f35bb9ae)
+![image](https://github.com/user-attachments/assets/863be098-90e4-4b40-a0be-b64f9962912a)
+![image](https://github.com/user-attachments/assets/dcedaca1-1e33-4bb0-83f7-0f8b40ead1d5)
 
 Run DRC commands:
 ``` 
@@ -3897,9 +3878,7 @@ drc check
 drc why 
 ```
 
-![Screenshot from 2024-11-13 00-33-24](https://github.com/user-attachments/assets/b99c626f-6e9f-4312-a934-31b964dc1a5c)
-
-![Screenshot from 2024-11-13 00-35-16](https://github.com/user-attachments/assets/fe5c1e08-92e6-46b5-9791-34731fd28a46)
+![image](https://github.com/user-attachments/assets/5e4c9001-0306-403c-9193-1740cadaae5d)
 
 <img width="805" alt="Screenshot 2024-11-13 at 12 38 16 AM" src="https://github.com/user-attachments/assets/ddccab54-9579-42a6-80e2-a4b74dc21eea">
 
