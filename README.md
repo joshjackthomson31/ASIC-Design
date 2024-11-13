@@ -3288,14 +3288,6 @@ Graphs:
 
 
 </details>
-
-
-![image](https://github.com/user-attachments/assets/dec2ca6b-a438-4cb2-8a0b-47406ec6c1fa)
-![image](https://github.com/user-attachments/assets/30826177-af4f-4f48-b012-b9600ccbb8d4)
-![image](https://github.com/user-attachments/assets/b5753837-5783-4ed3-9a03-53a99fa6fb1c)
-![image](https://github.com/user-attachments/assets/305e3e81-4a07-4875-968c-372adfc16186)
-![image](https://github.com/user-attachments/assets/f785e48d-1ca3-4629-ae30-432c6eda9cf9)
-
 <summary><strong>Lab Session 13</strong>  Advanced Physical Design using OpenLane using Sky130</summary>
 
 <details>
