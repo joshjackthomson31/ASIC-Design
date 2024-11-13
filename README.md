@@ -3415,7 +3415,7 @@ The compiler produces instructions specific to the architecture, and the assembl
 
 3. **View the Netlist**:
    ```bash
-   cd designs/picorv32a/runs/11-11_16-15/results/synthesis/
+   cd designs/picorv32a/runs/13-11_17-57/results/synthesis/
    gedit picorv32a.synthesis.v
    ```
 
