@@ -3294,12 +3294,6 @@ Graphs:
 <summary><strong>Day-1:</strong>  Inception of open-source EDA, OpenLane and Sky130 PDK</summary>
 
 ## Inception of open-source EDA, OpenLane and Sky130 PDK
-![image](https://github.com/user-attachments/assets/dec2ca6b-a438-4cb2-8a0b-47406ec6c1fa)
-![image](https://github.com/user-attachments/assets/30826177-af4f-4f48-b012-b9600ccbb8d4)
-![image](https://github.com/user-attachments/assets/b5753837-5783-4ed3-9a03-53a99fa6fb1c)
-![image](https://github.com/user-attachments/assets/305e3e81-4a07-4875-968c-372adfc16186)
-![image](https://github.com/user-attachments/assets/f785e48d-1ca3-4629-ae30-432c6eda9cf9)
-
 **QFN-48 Package**: The QFN-48 is a compact leadless package with 48 connection pads around its perimeter, providing excellent thermal and electrical performance, ideal for high-density applications.
 
 ![Screenshot from 2024-11-11 14-32-57](https://github.com/user-attachments/assets/3f1237c7-c6a6-453f-9655-636f8778eb9c)
@@ -3416,7 +3410,7 @@ The compiler produces instructions specific to the architecture, and the assembl
    run_synthesis
    ```
 
-   ![1](https://github.com/user-attachments/assets/79bf5c08-c476-4a13-aafa-fbe3660bab49)
+   ![image](https://github.com/user-attachments/assets/dec2ca6b-a438-4cb2-8a0b-47406ec6c1fa)
 
 
 3. **View the Netlist**:
@@ -3425,10 +3419,9 @@ The compiler produces instructions specific to the architecture, and the assembl
    gedit picorv32a.synthesis.v
    ```
 
-   ![2](https://github.com/user-attachments/assets/a1181bfc-46e3-47c1-b840-b33829a2bb60)
-
-   ![3](https://github.com/user-attachments/assets/e33278e6-b30b-4a4e-b81d-d5fa7c23eea0)
-
+   ![image](https://github.com/user-attachments/assets/30826177-af4f-4f48-b012-b9600ccbb8d4)
+   ![image](https://github.com/user-attachments/assets/b5753837-5783-4ed3-9a03-53a99fa6fb1c)
+   
 5. **Yosys Report**:
    ```bash
    cd ../..
@@ -3436,10 +3429,9 @@ The compiler produces instructions specific to the architecture, and the assembl
    gedit 1-yosys_4.stat.rpt
    ```
 
-   ![5](https://github.com/user-attachments/assets/5a482c16-ee27-4e18-8335-5cb1a5ce84e7)
+  ![image](https://github.com/user-attachments/assets/305e3e81-4a07-4875-968c-372adfc16186)
 
-
-   ![4](https://github.com/user-attachments/assets/ce9c6b15-4c39-468c-a518-a3f2a06bf129)
+ ![image](https://github.com/user-attachments/assets/f785e48d-1ca3-4629-ae30-432c6eda9cf9)
 
 
   
