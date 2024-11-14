@@ -3581,7 +3581,7 @@ run_floorplan
 Then, in a new terminal, access the floorplan file as follows:
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_17-57/results/floorplan
 gedit picorv32a.floorplan.def
 ```
 ![image](https://github.com/user-attachments/assets/5ac98663-4c30-4d7e-b55c-a65c2ffdca7f)
@@ -3598,7 +3598,7 @@ According to the floorplan definitions:
 To view the floorplan in Magic:
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-28/results/floorplan/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_17-57/results/floorplan/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
 ![image](https://github.com/user-attachments/assets/2d700e27-f1ac-4f2e-90f5-cf592982fe16)
@@ -3626,7 +3626,7 @@ run_placement
 View the placement in Magic with:
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-11_16-56/results/placement/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_17-57/results/placement/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
 
@@ -3910,14 +3910,14 @@ grid 0.46um 0.34um 0.23um 0.17um
 Now, save it by giving a custon mae
 
 ```
-save sky130_karinv.mag
+save sky130_jackinv.mag
 ```
 ![image](https://github.com/user-attachments/assets/f196891e-33cd-4f25-9d0e-3c88378ec9a2)
 
 Now, open it by using the following commands:
 
 ```
-magic -T sky130A.tech sky130_karinv.mag &
+magic -T sky130A.tech sky130_jackinv.mag &
 ```
 
 ![image](https://github.com/user-attachments/assets/12940133-3f61-41da-ac17-4bfc33deb3ad)
@@ -3988,7 +3988,7 @@ Fixing slack:
 ```
 ./flow.tcl -interactive
 package require openlane 0.9
-prep -design picorv32a -tag 13-11_08-51 -overwrite
+prep -design picorv32a -tag 14-11_15-42 -overwrite
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 echo $::env(SYNTH_STRATEGY)
@@ -4030,7 +4030,7 @@ run_placement
 Now, open a new terminal and run the below commands to load placement def in magic
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_08-51/results/placement/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_15-42/results/placement/
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 
 ```
@@ -4067,7 +4067,7 @@ Go, to `Desktop/work/tools/openlane_working_dir/openlane` and create a file `pre
 set_cmd_units -time ns -capacitance pF -current mA -voltage V -resistance kOhm -distance um
 read_liberty -max /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib
 read_liberty -min /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib
-read_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_08-51/results/synthesis/picorv32a.synthesis.v
+read_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_15-42/results/synthesis/picorv32a.synthesis.v
 link_design picorv32a
 read_sdc /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/my_base.sdc
 report_checks -path_delay min_max -fields {slew trans net cap input_pin}
@@ -4127,7 +4127,7 @@ Go to new terminal and run the follwoing commands:
 cd Desktop/work/tools/openlane_working_dir/openlane
 docker
 ./flow.tcl -interactive
-prep -design picorv32a -tag 13-11_08-51 -overwrite
+prep -design picorv32a -tag 14-11_15-42 -overwrite
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 set ::env(SYNTH_SIZING) 1
@@ -4199,7 +4199,7 @@ Now to insert this updated netlist to PnR flow and we can use write_verilog and 
 Run the following commands:
 
 ```
-cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_08-51/results/synthesis/
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_15-42/results/synthesis/
 ls
 cp picorv32a.synthesis.v picorv32a.synthesis_old.v
 ls
@@ -4208,7 +4208,7 @@ ls
 Commands to write verilog:
 
 ```
-write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_08-51/results/synthesis/picorv32a.synthesis.v
+write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_15-42/results/synthesis/picorv32a.synthesis.v
 exit
 ```
 Verified that the netlist is overwritten
@@ -4221,7 +4221,7 @@ Now, run the following commands:
 cd Desktop/work/tools/openlane_working_dir/openlane
 docker
 ./flow.tcl -interactive
-prep -design picorv32a -tag 13-11_08-51 -overwrite
+prep -design picorv32a -tag 14-11_15-42 -overwrite
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 set ::env(SYNTH_STRATEGY) "DELAY 3"
@@ -4250,11 +4250,11 @@ Now, enter the following commands for Post-CTS OpenROAD timing analysis:
 
 ```
 openroad
-read_lef /openLANE_flow/designs/picorv32a/runs/13-11_08-51/tmp/merged.lef
-read_def /openLANE_flow/designs/picorv32a/runs/13-11_08-51results/cts/picorv32a.cts.def
+read_lef /openLANE_flow/designs/picorv32a/runs/14-11_15-42/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/14-11_15-42/results/cts/picorv32a.cts.def
 write_db pico_cts.db
 read_db pico_cts.db
-read_verilog /openLANE_flow/designs/picorv32a/runs/13-11_08-51/results/synthesis/picorv32a.synthesis_cts.v
+read_verilog /openLANE_flow/designs/picorv32a/runs/14-11_15-42/results/synthesis/picorv32a.synthesis_cts.v
 read_liberty $::env(LIB_SYNTH_COMPLETE)
 link_design picorv32a
 read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
@@ -4275,15 +4275,15 @@ echo $::env(CTS_CLK_BUFFER_LIST)
 set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
 echo $::env(CTS_CLK_BUFFER_LIST)
 echo $::env(CURRENT_DEF)
-set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/13-11_08-51/results/placement/picorv32a.placement.def
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/14-11_15-42/results/placement/picorv32a.placement.def
 run_cts
 echo $::env(CTS_CLK_BUFFER_LIST)
 openroad
-read_lef /openLANE_flow/designs/picorv32a/runs/13-11_08-51/tmp/merged.lef
-read_def /openLANE_flow/designs/picorv32a/runs/13-11_08-51/results/cts/picorv32a.cts.def
+read_lef /openLANE_flow/designs/picorv32a/runs/14-11_15-42/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/14-11_15-42/results/cts/picorv32a.cts.def
 write_db pico_cts1.db
 read_db pico_cts.db
-read_verilog /openLANE_flow/designs/picorv32a/runs/13-11_08-51/results/synthesis/picorv32a.synthesis_cts.v
+read_verilog /openLANE_flow/designs/picorv32a/runs/14-11_15-42/results/synthesis/picorv32a.synthesis_cts.v
 read_liberty $::env(LIB_SYNTH_COMPLETE)
 link_design picorv32a
 read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
