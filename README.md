@@ -4000,15 +4000,15 @@ echo $::env(SYNTH_DRIVING_CELL)
 run_synthesis
 ```
 
-![image](https://github.com/user-attachments/assets/f9142223-3e9b-4d66-acc2-95b7674132d2)
+![image](https://github.com/user-attachments/assets/32ffe3ae-298d-4f95-8156-03982423b783)
+![image](https://github.com/user-attachments/assets/0cb2dd8d-276c-4148-ab80-4fe5b3fc0b28)
 
 Now, run floorplan
 
 ```
 run_floorplan
 ```
-
-![image](https://github.com/user-attachments/assets/e7301aea-aa91-4091-82f8-d917b2d30dd1)
+![image](https://github.com/user-attachments/assets/f9142223-3e9b-4d66-acc2-95b7674132d2)
 
 
 Since we are facing unexpected un-explainable error while using run_floorplan command, we can instead use the following set of commands available based on information from `Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl` and also based on Floorplan Commands section in `Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md`
@@ -4024,6 +4024,7 @@ Now, do placement
 ```
 run_placement
 ```
+![image](https://github.com/user-attachments/assets/e7301aea-aa91-4091-82f8-d917b2d30dd1)
 
 ![image](https://github.com/user-attachments/assets/4a8d7ab9-9f3b-44e6-8729-50235ea13f74)
 
@@ -4036,12 +4037,8 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 ```
 
 Custom inverter inserted in placement def
+![image](https://github.com/user-attachments/assets/4a8d7ab9-9f3b-44e6-8729-50235ea13f74)
 
-![Screenshot from 2024-11-13 18-26-44](https://github.com/user-attachments/assets/ea1394be-06a7-4127-b365-e3b2104eee2e)
-
-Now, select the cell and type `expand` in tkcon window to view internal layers of cells
-
-![Screenshot from 2024-11-13 18-29-17](https://github.com/user-attachments/assets/f142cf04-95f6-4fe8-8441-f4a50f06de07)
 
 **Timing analysis with ideal clocks using openSTA**
 
