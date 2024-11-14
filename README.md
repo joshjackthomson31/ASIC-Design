@@ -3885,48 +3885,6 @@ drc why
 </details>
 
 
-![image](https://github.com/user-attachments/assets/29bc7228-0573-4dbf-a449-efb6e6820283)
-![image](https://github.com/user-attachments/assets/0e579ec3-ef2b-4a53-963a-d7b15d22d58e)
-![image](https://github.com/user-attachments/assets/f196891e-33cd-4f25-9d0e-3c88378ec9a2)
-![image](https://github.com/user-attachments/assets/12940133-3f61-41da-ac17-4bfc33deb3ad)
-![image](https://github.com/user-attachments/assets/7762dfd2-954a-4a67-af5e-a1fa049d1945)
-
-![image](https://github.com/user-attachments/assets/9d0d4806-54de-414b-b7c2-d2b4e947bd9b)
-
-![image](https://github.com/user-attachments/assets/32ffe3ae-298d-4f95-8156-03982423b783)
-![image](https://github.com/user-attachments/assets/0cb2dd8d-276c-4148-ab80-4fe5b3fc0b28)
-
-![image](https://github.com/user-attachments/assets/f9142223-3e9b-4d66-acc2-95b7674132d2)
-
-![image](https://github.com/user-attachments/assets/e7301aea-aa91-4091-82f8-d917b2d30dd1)
-
-![image](https://github.com/user-attachments/assets/4a8d7ab9-9f3b-44e6-8729-50235ea13f74)
-
-![image](https://github.com/user-attachments/assets/a0ef90d4-4412-4507-845b-16ea83b93674)
-![image](https://github.com/user-attachments/assets/bdfd2608-b098-4aca-9d5b-3efb94eb735b)
-
-![image](https://github.com/user-attachments/assets/e7ec4c01-7031-4f94-a862-f02d2de1169d)
-
-![image](https://github.com/user-attachments/assets/563f6862-8ce9-47ae-8e85-d143272509b7)
-![image](https://github.com/user-attachments/assets/6ff286c9-72e7-4e58-aaf0-073bb1e07fcb)
-![image](https://github.com/user-attachments/assets/239fb32c-0884-4cba-a5e0-e5f4ade3964d)
-
-![image](https://github.com/user-attachments/assets/9022884f-d016-402d-9782-c4526f0935a7)
-
-![image](https://github.com/user-attachments/assets/0ab97ecf-cb07-4ee1-98ef-85eaf47421c2)
-
-![image](https://github.com/user-attachments/assets/067e1537-784c-4472-8948-ce3ce34444b6)
-![image](https://github.com/user-attachments/assets/d8e661b8-b315-4576-8068-a111ff06b18d)
-![image](https://github.com/user-attachments/assets/a48695b6-3ee8-4a67-9e6c-f70924da5db9)
-
-![image](https://github.com/user-attachments/assets/e9e63809-3c11-4b59-b6e2-58e14109fe00)
-![image](https://github.com/user-attachments/assets/77102036-e501-40a9-8075-c2607f84f33f)
-![image](https://github.com/user-attachments/assets/9467a3d8-a9bb-4eb6-bfef-f4fb7bbbdee9)
-
-![image](https://github.com/user-attachments/assets/d8f29813-0082-42d8-a2aa-f7e7d65f0b45)
-![image](https://github.com/user-attachments/assets/3e090319-75d9-4683-a090-0661594b9b23)
-![image](https://github.com/user-attachments/assets/0813869b-047f-4b5c-a886-3b31a889dee0)
-
 <details>
 <summary><strong>Day-4:</strong> pre-layout timing analysis and importance of good clock tree </summary>
 
@@ -3940,24 +3898,21 @@ cd ../../pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/
 less tracks.info
 ```
 
-![Screenshot from 2024-11-13 02-35-59](https://github.com/user-attachments/assets/82177838-476c-4471-a17f-a665dcdba1b3)
-
+![image](https://github.com/user-attachments/assets/29bc7228-0573-4dbf-a449-efb6e6820283)
 Commands to set grid for tkcon window as tracks of locali layer use the following command
 
 ```
 grid 0.46um 0.34um 0.23um 0.17um
 ```
 
-![Screenshot from 2024-11-13 02-40-45](https://github.com/user-attachments/assets/5e6843f4-b3d1-413e-97d6-9665e544d4ea)
-
+![image](https://github.com/user-attachments/assets/0e579ec3-ef2b-4a53-963a-d7b15d22d58e)
 
 Now, save it by giving a custon mae
 
 ```
 save sky130_karinv.mag
 ```
-![Screenshot from 2024-11-13 02-43-18](https://github.com/user-attachments/assets/8621a99d-51fc-409e-acd6-4e62a53b6a1f)
-
+![image](https://github.com/user-attachments/assets/f196891e-33cd-4f25-9d0e-3c88378ec9a2)
 
 Now, open it by using the following commands:
 
@@ -3965,8 +3920,7 @@ Now, open it by using the following commands:
 magic -T sky130A.tech sky130_karinv.mag &
 ```
 
-![Screenshot from 2024-11-13 02-44-19](https://github.com/user-attachments/assets/d5e8ab1e-bbb7-4c0b-a52a-ae19ae96a1e1)
-
+![image](https://github.com/user-attachments/assets/12940133-3f61-41da-ac17-4bfc33deb3ad)
 
 
 Now, type the following command in tkcon window:
@@ -3974,7 +3928,7 @@ Now, type the following command in tkcon window:
 ```
 lef write
 ```
-![Screenshot from 2024-11-13 02-46-07](https://github.com/user-attachments/assets/7fefb973-a988-4dc3-a1ca-a70c8d878b2c)
+![image](https://github.com/user-attachments/assets/7762dfd2-954a-4a67-af5e-a1fa049d1945)
 
 
 Modify config.tcl:
@@ -4019,7 +3973,7 @@ set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 run_synthesis
 ```
-
+![image](https://github.com/user-attachments/assets/9d0d4806-54de-414b-b7c2-d2b4e947bd9b)
 ![image](https://github.com/user-attachments/assets/32ffe3ae-298d-4f95-8156-03982423b783)
 ![image](https://github.com/user-attachments/assets/0cb2dd8d-276c-4148-ab80-4fe5b3fc0b28)
 
