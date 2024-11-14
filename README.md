@@ -4026,7 +4026,6 @@ run_placement
 ```
 ![image](https://github.com/user-attachments/assets/e7301aea-aa91-4091-82f8-d917b2d30dd1)
 
-![image](https://github.com/user-attachments/assets/4a8d7ab9-9f3b-44e6-8729-50235ea13f74)
 
 Now, open a new terminal and run the below commands to load placement def in magic
 
