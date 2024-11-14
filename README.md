@@ -4341,7 +4341,7 @@ Screenshots of power distribution network run
 ![image](https://github.com/user-attachments/assets/c38182fa-bc27-495e-935f-a2c2b812af00)
 ![image](https://github.com/user-attachments/assets/0b95aafe-e49f-4d31-b368-39a8efa2e557)
 ![image](https://github.com/user-attachments/assets/d586549e-037a-4064-89ae-83b199969180)
-
+![image](https://github.com/user-attachments/assets/fd09908b-150f-4182-9016-90d4b972e695)
 
 ## 2. Perfrom detailed routing using TritonRoute and explore the routed layout.
 Command to perform routing
@@ -4352,7 +4352,6 @@ run_routing
 ```
 Screenshots of routing run
 
-![image](https://github.com/user-attachments/assets/fd09908b-150f-4182-9016-90d4b972e695)
 ![image](https://github.com/user-attachments/assets/20e9825b-2ebe-423e-be28-e7569ec5164f)
 
 
