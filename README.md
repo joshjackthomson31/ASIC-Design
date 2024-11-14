@@ -4305,16 +4305,6 @@ echo $::env(CTS_CLK_BUFFER_LIST)
 
 </details>
 
-![image](https://github.com/user-attachments/assets/c38182fa-bc27-495e-935f-a2c2b812af00)
-![image](https://github.com/user-attachments/assets/0b95aafe-e49f-4d31-b368-39a8efa2e557)
-![image](https://github.com/user-attachments/assets/d586549e-037a-4064-89ae-83b199969180)
-![image](https://github.com/user-attachments/assets/fd09908b-150f-4182-9016-90d4b972e695)
-![image](https://github.com/user-attachments/assets/20e9825b-2ebe-423e-be28-e7569ec5164f)
-
-![image](https://github.com/user-attachments/assets/91eaf15d-2fba-4176-884f-b66dbd2629c5)
-![image](https://github.com/user-attachments/assets/dae39893-3dca-4af3-83d9-7941e50aa5a8)
-![image](https://github.com/user-attachments/assets/f7dbc8d3-2327-4ae7-a6ae-6ed52fe6b966)
-
 
 
 <details>
@@ -4348,15 +4338,9 @@ gen_pdn
 ```
 Screenshots of power distribution network run
 
-![Screenshot from 2024-11-14 00-02-24](https://github.com/user-attachments/assets/3d625e37-11e9-4584-bdfe-ef8cbc7f57f7)
-![Screenshot from 2024-11-14 00-02-50](https://github.com/user-attachments/assets/36f07b0e-77e8-466a-b912-782d3d3c965f)
-![Screenshot from 2024-11-14 00-02-53](https://github.com/user-attachments/assets/9d71f8e2-aaf1-41e3-ad84-5c7ba6009d45)
-![Screenshot from 2024-11-14 00-03-02](https://github.com/user-attachments/assets/4226b564-44c6-47a1-b71e-ca6825614578)
-![Screenshot from 2024-11-14 00-03-07](https://github.com/user-attachments/assets/5cf49287-29af-4aea-81bc-03c0b3bdd3e1)
-
-<img width="993" alt="Screenshot 2024-11-14 at 1 14 54 AM" src="https://github.com/user-attachments/assets/9a2e38bd-9cae-47d2-9415-49884658d545">
-
-<img width="1010" alt="Screenshot 2024-11-14 at 1 15 02 AM" src="https://github.com/user-attachments/assets/df16bfeb-33a4-488d-96b6-d9d9d33e9077">
+![image](https://github.com/user-attachments/assets/c38182fa-bc27-495e-935f-a2c2b812af00)
+![image](https://github.com/user-attachments/assets/0b95aafe-e49f-4d31-b368-39a8efa2e557)
+![image](https://github.com/user-attachments/assets/d586549e-037a-4064-89ae-83b199969180)
 
 
 ## 2. Perfrom detailed routing using TritonRoute and explore the routed layout.
@@ -4368,20 +4352,16 @@ run_routing
 ```
 Screenshots of routing run
 
-![Screenshot from 2024-11-14 00-25-50](https://github.com/user-attachments/assets/08b93b7f-bebe-482e-82ec-2cc0a751054b)
-![Screenshot from 2024-11-14 00-29-26](https://github.com/user-attachments/assets/e0cdb4e7-b24c-43e2-b7b6-107c961b786b)
-![Screenshot from 2024-11-14 00-34-39](https://github.com/user-attachments/assets/83684a88-d6be-471a-8b78-4a76bf2a2322)
-![Screenshot from 2024-11-14 00-34-32](https://github.com/user-attachments/assets/57eabce7-2021-4977-8df9-2b2a5eeb7d9b)
+![image](https://github.com/user-attachments/assets/fd09908b-150f-4182-9016-90d4b972e695)
+![image](https://github.com/user-attachments/assets/20e9825b-2ebe-423e-be28-e7569ec5164f)
 
 
-<img width="1007" alt="Screenshot 2024-11-14 at 1 15 24 AM" src="https://github.com/user-attachments/assets/507ba59e-e8ce-4c0d-8d42-3f5d6b26c857">
 
-<img width="623" alt="Screenshot 2024-11-14 at 1 18 40 AM" src="https://github.com/user-attachments/assets/975f23b9-3129-40d0-915d-2a12fde2df7d">
+![image](https://github.com/user-attachments/assets/91eaf15d-2fba-4176-884f-b66dbd2629c5)
+![image](https://github.com/user-attachments/assets/dae39893-3dca-4af3-83d9-7941e50aa5a8)
+Screenshot of fast route guide present in openlane/designs/picorv32a/runs/14-11_17-25/tmp/routing directory
 
-Screenshot of fast route guide present in openlane/designs/picorv32a/runs/13-11_18-24/tmp/routing directory
-
-![Screenshot from 2024-11-14 01-10-16](https://github.com/user-attachments/assets/34cdaa8c-3c9b-40f4-a146-cd09a6d637f2)
-
+![image](https://github.com/user-attachments/assets/f7dbc8d3-2327-4ae7-a6ae-6ed52fe6b966)
 
 ## 3. Post-Route parasitic extraction using SPEF extractor.
 Commands for SPEF extraction using external tool
